@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Family Kitchen - Traditional Comfort Food | Halaal South African Cuisine</title>
-    <meta name="description" content="Family Kitchen serves traditional South African comfort food - Gatsbys, Bunnies, Chips, Burgers and more. Visit us in Newclare. Halal certified. From our kitchen to yours.">
-    <meta name="keywords" content="Family Kitchen, South African food, halaal food, gatsby, bunny chow, chips, burgers, Newclare, catering, delivery">
+    <title>Family Kitchen - Traditional South African Comfort Food | Halaal</title>
+    <meta name="description" content="Family Kitchen serves traditional South African comfort food - Gatsbys, Bunnies, Chips, Burgers & more. Visit us in Newclare. Halal certified. From our kitchen to yours.">
+    <meta name="keywords" content="Family Kitchen, South African food, halaal food, gatsby, bunny chow, chips, burgers, Newclare, catering, delivery, traditional comfort food">
     <link rel="canonical" href="https://searchplaybook-crypto.github.io/Family-Kitchen/">
     <meta name="google-site-verification" content="google0358e8a493fefd4f.html" />
     <meta property="og:type" content="restaurant">
     <meta property="og:title" content="Family Kitchen | From Our Kitchen to Yours">
-    <meta property="og:description" content="Traditional Gatsbys, Bunnies & Comfort Food in Newclare. Order online or visit us today.">
+    <meta property="og:description" content="Traditional Gatsbys, Bunnies & Comfort Food in Newclare. Order online or visit us today. Halal certified.">
     <meta property="og:url" content="https://searchplaybook-crypto.github.io/Family-Kitchen/">
     <meta property="og:image" content="https://ik.imagekit.io/wemustcreate/CLIENTS%20/Fk-logo.png?updatedAt=1778191341888">
     <meta property="og:site_name" content="Family Kitchen">
@@ -37,63 +37,49 @@
         :root{--wood-dark:#1a1208;--wood-medium:#2a1f10;--wood-light:#3d2e18;--orange-primary:#e8850a;--orange-light:#f5a623;--orange-glow:#ff9d00;--orange-dark:#c06e00;--cream:#f5e6c8;--cream-light:#faf3e5;--text-light:#f5e6c8;--text-muted:#a08a6a;--halal-green:#2ecc71}
         *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
         body{font-family:'Poppins',sans-serif;background:var(--wood-dark);color:var(--text-light);overflow-x:hidden;-webkit-font-smoothing:antialiased;position:relative}
-        body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background-image:url('https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/39f36b7718ce2ae6bb9095c61390ecdb32e61703/assets/media/bg.png');background-size:cover;background-position:center;background-attachment:fixed;opacity:0.12;z-index:-2;pointer-events:none}
-        body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(180deg,rgba(26,18,8,0.95),rgba(26,18,8,0.85));z-index:-1;pointer-events:none}
+        body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background-image:url('https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/84b3bdc48e29b74776cbb3ada993c3045be7e21c/assets/media/bg.png');background-size:cover;background-position:center;background-attachment:fixed;opacity:0.22;z-index:-2;pointer-events:none}
+        body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(180deg,rgba(26,18,8,0.88),rgba(26,18,8,0.78));z-index:-1;pointer-events:none}
         .loading-screen{position:fixed;inset:0;background:linear-gradient(180deg,var(--wood-dark),#0d0a04);z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.8s ease,visibility 0.8s ease;overflow:hidden}
         .loading-screen.hidden{opacity:0;visibility:hidden}
-        .loading-text{position:relative;z-index:2;text-align:center;margin-bottom:24px}
-        .loading-text h2{font-family:'Cookie',cursive;font-size:38px;color:var(--orange-light);margin-bottom:4px;text-shadow:0 0 30px rgba(232,133,10,0.3)}
-        .loading-text p{font-size:11px;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase}
-        .loading-bike-scene{position:relative;width:280px;height:180px;z-index:2}
-        .bike-wrapper{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);animation:bikeBounce 1.2s ease-in-out infinite}
-        @keyframes bikeBounce{0%,100%{transform:translateX(-50%) translateY(0) rotate(0)}15%{transform:translateX(-50%) translateY(-5px) rotate(0.8deg)}50%{transform:translateX(-50%) translateY(-3px) rotate(0.5deg)}}
-        .bike-svg{width:180px;height:130px}
-        .bike-wheel-back,.bike-wheel-front{animation:wheelSpin 0.5s linear infinite;transform-origin:center}
+        .loading-logo{width:100px;height:100px;object-fit:contain;animation:logoPulse 1.5s ease-in-out infinite;filter:drop-shadow(0 0 20px rgba(232,133,10,0.4))}
+        @keyframes logoPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.08);opacity:0.85}}
+        .loading-text{position:relative;z-index:2;text-align:center;margin-top:20px}
+        .loading-text h2{font-family:'Cookie',cursive;font-size:38px;color:var(--orange-light);text-shadow:0 0 30px rgba(232,133,10,0.3)}
+        .loading-text p{font-size:11px;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+        .loading-scooter{width:140px;height:90px;margin-top:16px;position:relative}
+        .scooter-body{width:100%;height:100%;animation:scooterBounce 1.2s ease-in-out infinite}
+        @keyframes scooterBounce{0%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-4px) rotate(1deg)}50%{transform:translateY(-2px) rotate(-0.5deg)}75%{transform:translateY(-3px) rotate(0.5deg)}}
+        .scooter-wheel{animation:wheelSpin 0.6s linear infinite;transform-origin:center}
         @keyframes wheelSpin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
-        .petrol-exhaust{position:absolute;left:-2px;bottom:38px;display:flex;align-items:center}
-        .exhaust-puff{width:6px;height:6px;background:rgba(160,138,106,0.5);border-radius:50%;animation:exhaustPuff 0.8s ease-out infinite;margin-right:2px;filter:blur(1px)}
-        .exhaust-puff:nth-child(2){animation-delay:0.1s}.exhaust-puff:nth-child(3){animation-delay:0.2s}.exhaust-puff:nth-child(4){animation-delay:0.3s}.exhaust-puff:nth-child(5){animation-delay:0.4s}
-        @keyframes exhaustPuff{0%{opacity:0.6;transform:translateX(0) scale(1)}100%{opacity:0;transform:translateX(-20px) scale(2.2)}}
-        .engine-vibe{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;animation:engineShake 0.15s ease-in-out infinite alternate}
-        @keyframes engineShake{0%{transform:translate(-50%,-50%) translateX(-0.5px)}100%{transform:translate(-50%,-50%) translateX(0.5px)}}
-        .loading-road{position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(180deg,#15120c,#0d0a04);border-top:2px solid rgba(232,133,10,0.15)}
-        .loading-road-line{position:absolute;top:50%;left:0;right:0;height:3px;display:flex;gap:25px;animation:roadScroll 0.6s linear infinite}
-        .loading-road-line span{display:block;width:35px;height:3px;background:rgba(232,133,10,0.25);border-radius:2px;flex-shrink:0}
-        @keyframes roadScroll{0%{transform:translateX(0)}100%{transform:translateX(-60px)}}
+        .exhaust-puff{position:absolute;width:6px;height:6px;background:rgba(160,138,106,0.6);border-radius:50%;animation:puffOut 0.8s ease-out infinite;filter:blur(1px)}
+        .exhaust-puff:nth-child(2){animation-delay:0.15s}.exhaust-puff:nth-child(3){animation-delay:0.3s}.exhaust-puff:nth-child(4){animation-delay:0.45s}
+        @keyframes puffOut{0%{opacity:0.7;transform:translateX(0) scale(1)}100%{opacity:0;transform:translateX(-25px) scale(2.5)}}
         .loading-progress{position:relative;z-index:2;width:180px;height:4px;background:rgba(255,255,255,0.06);border-radius:2px;overflow:hidden;margin-top:24px;box-shadow:inset 0 1px 3px rgba(0,0,0,0.3)}
-        .loading-progress-fill{width:0%;height:100%;background:linear-gradient(90deg,var(--orange-dark),var(--orange-primary),var(--orange-light));border-radius:2px;animation:progressFill 3s ease-out forwards;box-shadow:0 0 10px rgba(232,133,10,0.5)}
+        .loading-progress-fill{width:0%;height:100%;background:linear-gradient(90deg,var(--orange-dark),var(--orange-primary),var(--orange-light));border-radius:2px;animation:progressFill 2.8s ease-out forwards;box-shadow:0 0 10px rgba(232,133,10,0.5)}
         @keyframes progressFill{0%{width:0}20%{width:15%}40%{width:35%}60%{width:60%}80%{width:85%}100%{width:100%}}
-        .loading-delivery-status{position:relative;z-index:2;margin-top:14px;display:flex;align-items:center;gap:8px;font-size:10px;color:var(--text-muted)}
-        .loading-delivery-status .dot{width:5px;height:5px;background:var(--orange-light);border-radius:50%;animation:dotPulse 1s ease-in-out infinite}
-        .loading-delivery-status .dot:nth-child(2){animation-delay:0.2s}.loading-delivery-status .dot:nth-child(3){animation-delay:0.4s}
+        .loading-status{position:relative;z-index:2;margin-top:12px;display:flex;align-items:center;gap:8px;font-size:10px;color:var(--text-muted)}
+        .loading-status .dot{width:5px;height:5px;background:var(--orange-light);border-radius:50%;animation:dotPulse 1s ease-in-out infinite}
+        .loading-status .dot:nth-child(2){animation-delay:0.2s}.loading-status .dot:nth-child(3){animation-delay:0.4s}
         @keyframes dotPulse{0%,100%{opacity:0.3}50%{opacity:1}}
-        .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(26,18,8,0.88);backdrop-filter:blur(24px);border-bottom:1px solid rgba(232,133,10,0.12);transition:all 0.4s}
-        .navbar.scrolled{background:rgba(26,18,8,0.96);box-shadow:0 4px 20px rgba(0,0,0,0.3)}
+        .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(26,18,8,0.88);backdrop-filter:blur(24px) saturate(1.2);-webkit-backdrop-filter:blur(24px) saturate(1.2);border-bottom:1px solid rgba(232,133,10,0.12);transition:all 0.4s}
+        .navbar.scrolled{background:rgba(26,18,8,0.96);border-bottom-color:rgba(232,133,10,0.2);box-shadow:0 4px 20px rgba(0,0,0,0.3)}
         .nav-container{max-width:480px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between}
         .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
         .nav-logo img{width:40px;height:40px;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(232,133,10,0.3))}
         .nav-logo-text{display:flex;flex-direction:column;line-height:1.1}
-        .nav-logo-text .brand{font-family:'Cookie',cursive;font-size:18px;color:var(--orange-light);text-shadow:0 1px 3px rgba(0,0,0,0.3)}
+        .nav-logo-text .brand{font-family:'Cookie',cursive;font-size:18px;color:var(--orange-light)}
         .nav-logo-text .tagline{font-size:8px;color:var(--text-muted);font-weight:500;letter-spacing:1.5px;text-transform:uppercase}
         .nav-halal{display:flex;align-items:center;gap:4px;background:rgba(46,204,113,0.08);border:1px solid rgba(46,204,113,0.25);border-radius:20px;padding:4px 10px;font-size:9px;color:var(--halal-green);font-weight:700}
-        .nav-links{display:flex;gap:2px}
-        .nav-links a{color:var(--text-muted);text-decoration:none;font-size:12px;font-weight:500;padding:6px 12px;border-radius:8px;transition:all 0.3s}
-        .nav-links a:hover,.nav-links a.active{color:var(--orange-light);background:rgba(232,133,10,0.1)}
+        .nav-halal i{font-size:12px}
         .mobile-menu-btn{display:none;width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:var(--cream);font-size:18px;cursor:pointer;align-items:center;justify-content:center}
         @media(max-width:480px){.mobile-menu-btn{display:flex}}
         .hero{position:relative;padding-top:60px;overflow:hidden}
-        .hero-parallax-container{position:relative;width:100%;height:480px;overflow:hidden}
-        .hero-slide{position:absolute;top:0;left:0;width:100%;height:120%;opacity:0;transition:opacity 0.8s ease,transform 0.1s linear;will-change:transform,opacity}
-        .hero-slide.active{opacity:1;z-index:1}
-        .hero-slide img,.hero-slide video{width:100%;height:100%;object-fit:cover}
-        .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,18,8,0.3) 0%,rgba(26,18,8,0.1) 40%,rgba(26,18,8,0.6) 75%,rgba(26,18,8,1) 100%);z-index:2}
-        .hero-content{position:absolute;bottom:80px;left:0;right:0;padding:0 24px;text-align:center;z-index:3}
-        .hero-content .hero-title{font-family:'Cookie',cursive;font-size:62px;color:var(--cream-light);text-shadow:0 3px 25px rgba(0,0,0,0.7),0 6px 50px rgba(0,0,0,0.4),0 0 80px rgba(232,133,10,0.2);margin-bottom:8px;line-height:1.1}
-        .hero-content .hero-subtitle{font-family:'Poppins',sans-serif;font-weight:600;font-size:15px;letter-spacing:0.3px;color:var(--cream);opacity:0.95;margin-bottom:20px;text-shadow:0 1px 2px rgba(0,0,0,0.4),0 2px 8px rgba(0,0,0,0.2)}
-        .hero-content .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(232,133,10,0.12);border:1px solid rgba(232,133,10,0.25);backdrop-filter:blur(10px);border-radius:25px;padding:8px 18px;font-size:11px;color:var(--orange-light);font-weight:600}
-        .hero-content .hero-badge .live-dot{width:7px;height:7px;background:var(--orange-light);border-radius:50%;animation:dotPulse2 1.5s ease-in-out infinite;box-shadow:0 0 8px rgba(232,133,10,0.6)}
-        @keyframes dotPulse2{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.8)}}
-        .hero-indicators{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:4}
+        .hero-parallax-container{position:relative;width:100%;height:440px;overflow:hidden}
+        .hero-slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity 0.8s ease}
+        .hero-slide.active{opacity:1}
+        .hero-slide video,.hero-slide img{width:100%;height:100%;object-fit:cover}
+        .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,18,8,0.3) 0%,rgba(26,18,8,0.05) 35%,rgba(26,18,8,0.6) 70%,rgba(26,18,8,0.95) 90%,rgba(26,18,8,1) 100%)}
+        .hero-indicators{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10}
         .hero-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.3);border:none;cursor:pointer;transition:all 0.4s;padding:0}
         .hero-dot.active{background:var(--orange-light);width:28px;border-radius:4px;box-shadow:0 0 12px rgba(232,133,10,0.6)}
         .glow-cta{display:flex;flex-direction:column;align-items:center;gap:16px;padding:44px 24px 20px;position:relative}
@@ -102,6 +88,7 @@
         .glow-cta-btn::before{content:'';position:absolute;inset:-3px;background:conic-gradient(from 0deg,var(--orange-primary),var(--orange-light),var(--orange-glow),#ffb347,var(--orange-primary));border-radius:53px;z-index:-2;animation:glowRotate 4s linear infinite}
         .glow-cta-btn::after{content:'';position:absolute;inset:2px;background:linear-gradient(135deg,var(--orange-primary),var(--orange-glow));border-radius:48px;z-index:-1}
         .glow-cta-btn:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 0 30px rgba(232,133,10,0.5),0 10px 40px rgba(232,133,10,0.3)}
+        .glow-cta-btn:active{transform:translateY(-1px) scale(0.98)}
         .glow-cta-btn i{font-size:20px;animation:phoneRing 2s ease-in-out infinite}
         @keyframes glowRotate{0%{filter:brightness(1)}50%{filter:brightness(1.3)}100%{filter:brightness(1)}}
         @keyframes phoneRing{0%,100%{transform:rotate(0)}10%{transform:rotate(-10deg)}20%{transform:rotate(10deg)}30%{transform:rotate(-10deg)}40%{transform:rotate(10deg)}50%{transform:rotate(0)}}
@@ -114,27 +101,18 @@
         .review-badge i{color:var(--orange-light);font-size:14px}
         .review-badge a{color:var(--cream);text-decoration:underline;text-decoration-color:rgba(232,133,10,0.4);text-underline-offset:3px;transition:color 0.3s}
         .review-badge a:hover{color:var(--orange-light)}
-        .order-status{background:linear-gradient(135deg,rgba(232,133,10,0.12),rgba(232,133,10,0.04));border:1px solid rgba(232,133,10,0.18);border-radius:16px;padding:16px 20px;margin:8px 24px 20px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
-        .order-status-left{display:flex;align-items:center;gap:12px}
-        .order-status-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--orange-primary),var(--orange-glow));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--wood-dark);box-shadow:0 4px 12px rgba(232,133,10,0.3)}
-        .order-status-text h4{font-size:13px;font-weight:700;color:var(--orange-light)}
-        .order-status-text p{font-size:11px;color:var(--text-muted)}
-        .order-status-time{background:linear-gradient(135deg,var(--orange-primary),var(--orange-glow));color:var(--wood-dark);padding:8px 16px;border-radius:20px;font-size:14px;font-weight:700;box-shadow:0 2px 10px rgba(232,133,10,0.25)}
-        .menu-search-container{max-width:480px;margin:0 auto 20px;padding:0 20px}
-        .menu-search-wrapper{position:relative;display:flex;align-items:center;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:4px 12px;transition:all 0.3s}
-        .menu-search-wrapper:focus-within{border-color:rgba(232,133,10,0.4);box-shadow:0 0 0 3px rgba(232,133,10,0.1)}
-        .menu-search-icon{color:var(--text-muted);font-size:18px;margin-right:8px}
-        .menu-search-input{flex:1;background:transparent;border:none;color:var(--cream-light);font-size:14px;padding:10px 0;outline:none;font-family:'Poppins',sans-serif}
-        .menu-search-input::placeholder{color:var(--text-muted);opacity:0.7}
-        .menu-search-clear{background:none;border:none;color:var(--text-muted);font-size:16px;cursor:pointer;padding:4px;display:none;transition:color 0.3s}
-        .menu-search-clear.visible{display:block}
-        .search-results-count{text-align:center;font-size:12px;color:var(--text-muted);margin-top:8px;min-height:18px}
-        .category-tabs{display:flex;overflow-x:auto;gap:8px;padding:0 20px 16px;scrollbar-width:none;max-width:480px;margin:0 auto}
-        .category-tabs::-webkit-scrollbar{display:none}
-        .category-tab{flex-shrink:0;padding:8px 18px;border-radius:25px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);color:var(--text-muted);font-size:12px;font-weight:600;cursor:pointer;transition:all 0.3s;display:flex;align-items:center;gap:6px;font-family:'Poppins',sans-serif}
-        .category-tab.active{background:linear-gradient(135deg,var(--orange-primary),var(--orange-glow));color:var(--wood-dark);border-color:var(--orange-primary);box-shadow:0 4px 15px rgba(232,133,10,0.3)}
+        .backlink-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;background:rgba(139,90,43,0.15);border:1px solid rgba(139,90,43,0.3);border-radius:12px;color:var(--cream);font-size:12px;font-weight:600;cursor:pointer;transition:all 0.3s;text-decoration:none;margin-top:8px}
+        .backlink-btn:hover{background:rgba(139,90,43,0.25);border-color:rgba(139,90,43,0.5);transform:translateY(-2px)}
+        .backlink-btn svg{width:18px;height:18px;fill:currentColor}
+        .section{padding:40px 20px;max-width:480px;margin:0 auto;position:relative;z-index:1}
+        .section-header{text-align:center;margin-bottom:28px}
+        .section-header h2{font-size:28px;font-weight:800;color:var(--cream-light);margin-bottom:4px}
+        .section-header h2 span{color:var(--orange-light)}
+        .section-header p{font-size:13px;color:var(--text-muted);font-weight:300}
+        .section-divider{width:60px;height:3px;background:linear-gradient(90deg,transparent,var(--orange-primary),transparent);margin:12px auto 0;border-radius:2px}
         .specials-section{padding:30px 0;overflow:hidden}
         .specials-scroll{display:flex;gap:16px;padding:0 20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+        .specials-scroll::-webkit-scrollbar{display:none}
         .special-card{flex-shrink:0;width:300px;scroll-snap-align:center;background:linear-gradient(145deg,rgba(42,31,16,0.8),rgba(26,18,8,0.9));border:1px solid rgba(232,133,10,0.12);border-radius:20px;overflow:hidden;transition:all 0.4s;box-shadow:0 4px 12px rgba(0,0,0,0.2)}
         .special-card:hover{transform:translateY(-6px);border-color:rgba(232,133,10,0.35);box-shadow:0 8px 25px rgba(0,0,0,0.3)}
         .special-card-img{width:100%;height:180px;object-fit:cover}
@@ -146,24 +124,19 @@
         .special-card-price{font-size:22px;font-weight:800;color:var(--orange-light)}
         .add-btn{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--orange-primary),var(--orange-glow));border:none;color:var(--wood-dark);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.3s;box-shadow:0 3px 10px rgba(232,133,10,0.3)}
         .add-btn:hover{transform:scale(1.15) rotate(90deg);box-shadow:0 0 25px rgba(232,133,10,0.5)}
-        .section{padding:40px 20px;max-width:480px;margin:0 auto;position:relative;z-index:1}
-        .section-header{text-align:center;margin-bottom:28px}
-        .section-header h2{font-size:28px;font-weight:800;color:var(--cream-light);margin-bottom:4px;text-shadow:0 2px 10px rgba(0,0,0,0.3)}
-        .section-header h2 span{color:var(--orange-light)}
-        .section-header p{font-size:13px;color:var(--text-muted);font-weight:300}
-        .section-divider{width:60px;height:3px;background:linear-gradient(90deg,transparent,var(--orange-primary),transparent);margin:12px auto 0;border-radius:2px;box-shadow:0 0 10px rgba(232,133,10,0.3)}
+        .add-btn:active{transform:scale(0.9)}
         .menu-category{margin-bottom:12px;border:1px solid rgba(255,255,255,0.05);border-radius:16px;overflow:hidden;background:rgba(255,255,255,0.015);transition:all 0.3s;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
-        .menu-category:hover{border-color:rgba(232,133,10,0.12);box-shadow:0 4px 16px rgba(0,0,0,0.15)}
+        .menu-category:hover{border-color:rgba(232,133,10,0.12)}
         .menu-category-header{padding:16px 20px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:all 0.3s;user-select:none}
         .menu-category-header:hover{background:rgba(232,133,10,0.04)}
         .menu-category-header-left{display:flex;align-items:center;gap:12px}
-        .menu-cat-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,rgba(232,133,10,0.18),rgba(232,133,10,0.04));display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--orange-light);box-shadow:0 2px 8px rgba(0,0,0,0.15)}
+        .menu-cat-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,rgba(232,133,10,0.18),rgba(232,133,10,0.04));display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--orange-light)}
         .menu-cat-info h3{font-size:15px;font-weight:700;color:var(--cream-light)}
         .menu-cat-info p{font-size:11px;color:var(--text-muted)}
         .menu-cat-arrow{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;color:var(--text-muted);transition:all 0.3s;font-size:14px}
         .menu-category.open .menu-cat-arrow{transform:rotate(180deg);background:rgba(232,133,10,0.18);color:var(--orange-light)}
         .menu-category-body{max-height:0;overflow:hidden;transition:max-height 0.5s cubic-bezier(0.4,0,0.2,1)}
-        .menu-category.open .menu-category-body{max-height:2500px}
+        .menu-category.open .menu-category-body{max-height:3000px}
         .menu-item{display:flex;align-items:center;justify-content:space-between;padding:12px 20px 12px 76px;border-top:1px solid rgba(255,255,255,0.03);transition:all 0.3s}
         .menu-item:hover{background:rgba(232,133,10,0.025)}
         .menu-item-info{flex:1}
@@ -172,80 +145,62 @@
         .menu-item-right{display:flex;align-items:center;gap:10px}
         .menu-item-price{font-size:15px;font-weight:700;color:var(--orange-light);white-space:nowrap}
         .menu-item-add{width:30px;height:30px;border-radius:50%;background:rgba(232,133,10,0.12);border:1px solid rgba(232,133,10,0.25);color:var(--orange-light);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.3s}
-        .menu-item-add:hover{background:var(--orange-primary);color:var(--wood-dark);transform:scale(1.1);box-shadow:0 0 12px rgba(232,133,10,0.3)}
+        .menu-item-add:hover{background:var(--orange-primary);color:var(--wood-dark);transform:scale(1.1)}
+        .menu-item-add:active{transform:scale(0.9)}
         .size-selector{display:flex;gap:6px;margin-top:4px}
         .size-btn{padding:2px 8px;border-radius:6px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:var(--text-muted);font-size:10px;font-weight:600;cursor:pointer;transition:all 0.3s;font-family:'Poppins',sans-serif}
         .size-btn.active{background:var(--orange-primary);color:var(--wood-dark);border-color:var(--orange-primary)}
         .famzee-highlight{margin:20px;background:linear-gradient(145deg,rgba(232,133,10,0.12),rgba(232,133,10,0.03));border:2px solid rgba(232,133,10,0.25);border-radius:24px;padding:28px 24px;text-align:center;position:relative;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.2)}
-        .famzee-highlight::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,transparent,rgba(232,133,10,0.04),transparent,rgba(232,133,10,0.04),transparent);animation:famzeeRotate 10s linear infinite}
-        @keyframes famzeeRotate{100%{transform:rotate(360deg)}}
         .famzee-content{position:relative;z-index:1}
-        .famzee-badge{display:inline-block;padding:5px 18px;background:linear-gradient(135deg,var(--orange-primary),var(--orange-glow));color:var(--wood-dark);font-size:10px;font-weight:800;border-radius:20px;margin-bottom:14px;text-transform:uppercase;letter-spacing:1px;box-shadow:0 2px 10px rgba(232,133,10,0.3)}
-        .famzee-content h3{font-size:26px;font-weight:800;color:var(--cream-light);margin-bottom:6px;text-shadow:0 2px 10px rgba(0,0,0,0.3)}
+        .famzee-badge{display:inline-block;padding:5px 18px;background:linear-gradient(135deg,var(--orange-primary),var(--orange-glow));color:var(--wood-dark);font-size:10px;font-weight:800;border-radius:20px;margin-bottom:14px;text-transform:uppercase;letter-spacing:1px}
+        .famzee-content h3{font-size:26px;font-weight:800;color:var(--cream-light);margin-bottom:6px}
         .famzee-content p{font-size:13px;color:var(--text-muted);margin-bottom:16px}
         .famzee-items{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:16px}
         .famzee-item-tag{padding:4px 12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:8px;font-size:11px;color:var(--cream);font-weight:500}
-        .famzee-price{font-size:36px;font-weight:800;color:var(--orange-light);text-shadow:0 2px 15px rgba(232,133,10,0.3)}
+        .famzee-price{font-size:36px;font-weight:800;color:var(--orange-light)}
         .locations-section{padding:40px 20px}
-        .location-card{background:linear-gradient(145deg,var(--wood-medium),rgba(26,18,8,0.8));border:1px solid rgba(232,133,10,0.12);border-radius:18px;padding:22px;margin-bottom:12px;transition:all 0.3s;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.15)}
-        .location-card:hover{border-color:rgba(232,133,10,0.35);transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,0.2)}
+        .location-card{background:linear-gradient(145deg,var(--wood-medium),rgba(26,18,8,0.8));border:1px solid rgba(232,133,10,0.12);border-radius:18px;padding:22px;margin-bottom:12px;transition:all 0.3s;box-shadow:0 4px 12px rgba(0,0,0,0.15)}
+        .location-card:hover{border-color:rgba(232,133,10,0.35);transform:translateY(-3px)}
         .location-card-top{display:flex;align-items:center;gap:14px;margin-bottom:12px}
-        .location-icon{width:50px;height:50px;border-radius:14px;background:linear-gradient(135deg,var(--orange-primary),var(--orange-dark));display:flex;align-items:center;justify-content:center;font-size:22px;color:white;box-shadow:0 4px 12px rgba(232,133,10,0.25)}
+        .location-icon{width:50px;height:50px;border-radius:14px;background:linear-gradient(135deg,var(--orange-primary),var(--orange-dark));display:flex;align-items:center;justify-content:center;font-size:22px;color:white}
         .location-name{font-size:16px;font-weight:700;color:var(--cream-light)}
         .location-address{font-size:12px;color:var(--text-muted)}
         .location-hours{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--halal-green);font-weight:600}
         .footer{background:linear-gradient(180deg,var(--wood-medium),#0d0a04);border-top:1px solid rgba(232,133,10,0.08);padding:44px 20px;text-align:center;position:relative;z-index:1}
         .footer-logo{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:20px}
-        .footer-logo img{width:50px;height:50px;object-fit:contain;filter:drop-shadow(0 2px 10px rgba(232,133,10,0.2))}
+        .footer-logo img{width:50px;height:50px;object-fit:contain}
         .footer-logo-text{text-align:left}
-        .footer-logo-text .brand{font-family:'Cookie',cursive;font-size:24px;color:var(--orange-light);text-shadow:0 1px 3px rgba(0,0,0,0.3)}
+        .footer-logo-text .brand{font-family:'Cookie',cursive;font-size:24px;color:var(--orange-light)}
         .footer-logo-text .tagline{font-size:11px;color:var(--text-muted)}
         .footer-reviews{margin-bottom:16px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
         .footer-reviews a{color:var(--cream);text-decoration:none;font-size:13px;font-weight:500;display:flex;align-items:center;gap:6px;transition:color 0.3s}
         .footer-reviews a:hover{color:var(--orange-light)}
-        .footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:16px}
+        .footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:20px}
         .footer-links a{color:var(--text-muted);text-decoration:none;font-size:12px;padding:6px 14px;border-radius:20px;transition:all 0.3s;border:1px solid transparent}
         .footer-links a:hover{color:var(--orange-light);background:rgba(232,133,10,0.08)}
-        .footer-legal{margin-bottom:16px;display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap}
-        .footer-legal svg{width:16px;height:16px;fill:var(--text-muted);opacity:0.7}
-        .footer-legal a{color:var(--text-muted);text-decoration:none;font-size:11px;transition:color 0.3s}
-        .footer-legal a:hover{color:var(--orange-light)}
         .footer-social{display:flex;justify-content:center;gap:12px;margin-bottom:20px}
-        .footer-social a{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:16px;text-decoration:none;transition:all 0.3s;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+        .footer-social a{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:16px;text-decoration:none;transition:all 0.3s}
         .footer-social a:hover{background:var(--orange-primary);border-color:var(--orange-primary);color:var(--wood-dark);transform:translateY(-3px)}
         .footer-copy{font-size:11px;color:var(--text-muted);opacity:0.6}
         .floating-order{position:fixed;bottom:24px;right:24px;z-index:999}
-        .floating-order-btn{width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,var(--halal-green),#27ae60);border:none;color:white;font-size:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 25px rgba(46,204,113,0.4);transition:all 0.4s;animation:floatBounce 3s ease-in-out infinite;position:relative}
-        .floating-order-btn:hover{transform:scale(1.1);box-shadow:0 8px 35px rgba(46,204,113,0.5)}
+        .floating-order-btn{width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,var(--orange-primary),var(--orange-glow));border:none;color:var(--wood-dark);font-size:26px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 25px rgba(232,133,10,0.4);transition:all 0.4s;animation:floatBounce 3s ease-in-out infinite;position:relative}
+        .floating-order-btn:hover{transform:scale(1.1)}
         @keyframes floatBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-        .order-badge{position:absolute;top:-4px;right:-4px;width:22px;height:22px;background:var(--orange-primary);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--wood-dark);border:2px solid var(--wood-dark);box-shadow:0 2px 8px rgba(0,0,0,0.3)}
-        .delivery-banner{background:linear-gradient(135deg,var(--orange-primary),var(--orange-glow));padding:22px 20px;text-align:center;position:relative;overflow:hidden}
-        .delivery-content{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:14px}
-        .delivery-content i{font-size:30px;color:var(--wood-dark);animation:deliveryDrive 2s ease-in-out infinite}
-        @keyframes deliveryDrive{0%,100%{transform:translateX(0)}50%{transform:translateX(8px)}}
-        .delivery-text h3{font-size:22px;font-weight:800;color:var(--wood-dark)}
-        .delivery-text p{font-size:18px;font-weight:700;color:var(--wood-dark)}
-        .extras-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:12px 20px 20px 76px}
-        .extra-item{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.05);border-radius:12px;padding:12px 8px;text-align:center;transition:all 0.3s;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.1)}
-        .extra-item:hover{background:rgba(232,133,10,0.06);border-color:rgba(232,133,10,0.2);transform:translateY(-3px)}
-        .extra-item-name{font-size:11px;font-weight:600;color:var(--cream);margin-bottom:4px}
-        .extra-item-price{font-size:13px;font-weight:700;color:var(--orange-light)}
-        .toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);background:linear-gradient(145deg,var(--wood-medium),var(--wood-dark));border:1px solid rgba(232,133,10,0.25);border-radius:14px;padding:14px 22px;display:flex;align-items:center;gap:10px;z-index:9999;opacity:0;transition:all 0.4s;pointer-events:none;box-shadow:0 10px 40px rgba(0,0,0,0.3)}
+        .order-badge{position:absolute;top:-4px;right:-4px;width:22px;height:22px;background:var(--orange-primary);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--wood-dark);border:2px solid var(--wood-dark)}
+        .toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);background:linear-gradient(145deg,var(--wood-medium),var(--wood-dark));border:1px solid rgba(232,133,10,0.25);border-radius:14px;padding:14px 22px;display:flex;align-items:center;gap:10px;z-index:9999;opacity:0;transition:all 0.4s;pointer-events:none}
         .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-        .toast-icon{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--halal-green),#27ae60);display:flex;align-items:center;justify-content:center;color:white;font-size:14px;box-shadow:0 2px 8px rgba(46,204,113,0.3)}
+        .toast-icon{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--halal-green),#27ae60);display:flex;align-items:center;justify-content:center;color:white;font-size:14px}
         .toast-text{font-size:13px;font-weight:600;color:var(--cream-light)}
         .fade-up{opacity:0;transform:translateY(30px);transition:all 0.6s cubic-bezier(0.4,0,0.2,1)}
         .fade-up.visible{opacity:1;transform:translateY(0)}
         .mobile-menu{position:fixed;inset:0;background:rgba(26,18,8,0.98);backdrop-filter:blur(24px);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;opacity:0;visibility:hidden;transition:all 0.4s}
         .mobile-menu.open{opacity:1;visibility:visible}
-        .mobile-menu a{color:var(--cream-light);text-decoration:none;font-size:26px;font-weight:700;transition:color 0.3s;font-family:'Cookie',cursive}
+        .mobile-menu a{color:var(--cream-light);text-decoration:none;font-size:26px;font-weight:700;font-family:'Cookie',cursive;transition:color 0.3s}
         .mobile-menu a:hover{color:var(--orange-light)}
         .mobile-menu-close{position:absolute;top:20px;right:20px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:var(--cream);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center}
-        @media(max-width:480px){.hero-parallax-container{height:400px}.hero-content .hero-title{font-size:52px}.section{padding:30px 16px}.special-card{width:260px}.nav-links{display:none}.extras-grid{padding-left:20px}}
-        section[id]{scroll-margin-top:70px}
         .pap-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px 20px 20px 76px}
-        .pap-item{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:rgba(255,255,255,0.025);border-radius:10px;border:1px solid rgba(255,255,255,0.05);cursor:pointer;transition:all 0.3s;box-shadow:0 2px 6px rgba(0,0,0,0.1)}
-        .pap-item:hover{background:rgba(232,133,10,0.06);border-color:rgba(232,133,10,0.2);transform:translateY(-2px)}
+        .pap-item{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:rgba(255,255,255,0.025);border-radius:10px;border:1px solid rgba(255,255,255,0.05);cursor:pointer;transition:all 0.3s}
+        .pap-item:hover{background:rgba(232,133,10,0.06);transform:translateY(-2px)}
         .pap-item-name{font-size:11px;font-weight:600;color:var(--cream)}
         .pap-item-price{font-size:13px;font-weight:700;color:var(--orange-light)}
         .family-combo-item{display:flex;justify-content:space-between;align-items:center;padding:14px 20px 14px 76px;border-top:1px solid rgba(255,255,255,0.03);cursor:pointer;transition:all 0.3s}
@@ -253,49 +208,48 @@
         .family-combo-name{font-size:13px;font-weight:600;color:var(--cream);flex:1;padding-right:12px}
         .family-combo-price{font-size:16px;font-weight:700;color:var(--orange-light)}
         .family-combo-btn{width:28px;height:28px;border-radius:50%;background:rgba(232,133,10,0.12);border:1px solid rgba(232,133,10,0.25);color:var(--orange-light);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;margin-left:8px;transition:all 0.3s}
-        .family-combo-btn:hover{background:var(--orange-primary);color:var(--wood-dark);box-shadow:0 0 12px rgba(232,133,10,0.3)}
+        .family-combo-btn:hover{background:var(--orange-primary);color:var(--wood-dark)}
         .grill-item,.curry-item{display:flex;justify-content:space-between;align-items:center;padding:12px 20px 12px 76px;border-top:1px solid rgba(255,255,255,0.03);transition:all 0.3s}
         .grill-item:hover,.curry-item:hover{background:rgba(232,133,10,0.025)}
+        .extras-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:12px 20px 20px 76px}
+        .extra-item{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.05);border-radius:12px;padding:12px 8px;text-align:center;transition:all 0.3s;cursor:pointer}
+        .extra-item:hover{background:rgba(232,133,10,0.06);border-color:rgba(232,133,10,0.2);transform:translateY(-3px)}
+        .extra-item-name{font-size:11px;font-weight:600;color:var(--cream);margin-bottom:4px}
+        .extra-item-price{font-size:13px;font-weight:700;color:var(--orange-light)}
+        @media(max-width:480px){.hero-parallax-container{height:380px}.section{padding:30px 16px}.special-card{width:260px}.extras-grid,.pap-grid{padding-left:20px}}
+        section[id]{scroll-margin-top:70px}
     </style>
 </head>
 <body>
     <div class="loading-screen" id="loadingScreen">
+        <img src="https://ik.imagekit.io/wemustcreate/CLIENTS%20/Fk-logo.png?updatedAt=1778191341888" alt="Family Kitchen Logo" class="loading-logo">
         <div class="loading-text"><h2>Family Kitchen</h2><p>Preparing your menu</p></div>
-        <div class="loading-bike-scene">
-            <div class="bike-wrapper">
-                <div class="engine-vibe">
-                    <svg class="bike-svg" viewBox="0 0 180 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="15" y="30" width="38" height="30" rx="6" fill="#c06e00" stroke="#a05a00" stroke-width="1.5"/>
-                        <path d="M20 38 Q34 34 48 38" stroke="#a05a00" stroke-width="1.5" fill="none"/>
-                        <circle cx="34" cy="46" r="4" fill="#1a1208" opacity="0.6"/>
-                        <text x="34" y="50" text-anchor="middle" fill="#f5e6c8" font-size="8" font-weight="bold" font-family="Poppins">FK</text>
-                        <path d="M55 85 L65 60 L95 42 L135 42 L155 55 L162 78 L158 90" stroke="#e8850a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                        <rect x="65" y="82" width="85" height="5" rx="2.5" fill="#a05a00"/>
-                        <path d="M60 60 L95 42" stroke="#f5a623" stroke-width="8" stroke-linecap="round"/>
-                        <path d="M60 60 L95 42" stroke="#e8850a" stroke-width="5" stroke-linecap="round"/>
-                        <path d="M155 55 L162 30" stroke="#e8850a" stroke-width="3.5" stroke-linecap="round"/>
-                        <path d="M152 28 L170 28" stroke="#e8850a" stroke-width="4" stroke-linecap="round"/>
-                        <circle cx="160" cy="55" r="5" fill="#f5a623" opacity="0.9"/>
-                        <circle cx="160" cy="55" r="3" fill="#faf3e5"/>
-                        <path d="M155 55 L152 90" stroke="#a05a00" stroke-width="3" stroke-linecap="round"/>
-                        <path d="M45 82 L38 82 L32 78 L28 75" stroke="#8a7050" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <ellipse cx="26" cy="74" rx="4" ry="2" fill="#6a5530" opacity="0.8"/>
-                        <circle cx="52" cy="95" r="16" stroke="#f5e6c8" stroke-width="3.5" fill="none"/>
-                        <circle cx="52" cy="95" r="5" fill="#f5e6c8"/><circle cx="52" cy="95" r="2" fill="#1a1208"/>
-                        <g class="bike-wheel-back"><line x1="52" y1="79" x2="52" y2="111" stroke="#f5e6c8" stroke-width="1.5" opacity="0.5"/><line x1="36" y1="95" x2="68" y2="95" stroke="#f5e6c8" stroke-width="1.5" opacity="0.5"/><line x1="41" y1="84" x2="63" y2="106" stroke="#f5e6c8" stroke-width="1.5" opacity="0.5"/><line x1="41" y1="106" x2="63" y2="84" stroke="#f5e6c8" stroke-width="1.5" opacity="0.5"/></g>
-                        <circle cx="150" cy="95" r="16" stroke="#f5e6c8" stroke-width="3.5" fill="none"/>
-                        <circle cx="150" cy="95" r="5" fill="#f5e6c8"/><circle cx="150" cy="95" r="2" fill="#1a1208"/>
-                        <g class="bike-wheel-front"><line x1="150" y1="79" x2="150" y2="111" stroke="#f5e6c8" stroke-width="1.5" opacity="0.5"/><line x1="134" y1="95" x2="166" y2="95" stroke="#f5e6c8" stroke-width="1.5" opacity="0.5"/><line x1="139" y1="84" x2="161" y2="106" stroke="#f5e6c8" stroke-width="1.5" opacity="0.5"/><line x1="139" y1="106" x2="161" y2="84" stroke="#f5e6c8" stroke-width="1.5" opacity="0.5"/></g>
-                        <circle cx="72" cy="38" r="10" fill="none" stroke="rgba(245,230,200,0.2)" stroke-width="2"/>
-                        <path d="M65 48 L60 65" stroke="rgba(245,230,200,0.15)" stroke-width="3" stroke-linecap="round"/>
-                    </svg>
-                </div>
-                <div class="petrol-exhaust"><span class="exhaust-puff"></span><span class="exhaust-puff"></span><span class="exhaust-puff"></span><span class="exhaust-puff"></span><span class="exhaust-puff"></span></div>
-            </div>
-            <div class="loading-road"><div class="loading-road-line"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+        <div class="loading-scooter">
+            <svg class="scooter-body" viewBox="0 0 140 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="20" y="25" width="30" height="22" rx="4" fill="#c06e00" stroke="#a05a00" stroke-width="1.5"/>
+                <path d="M50 65 L60 45 L85 30 L115 30 L130 40 L135 55 L132 65" stroke="#e8850a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <rect x="60" y="62" width="65" height="4" rx="2" fill="#a05a00"/>
+                <path d="M55 45 L85 30" stroke="#f5a623" stroke-width="6" stroke-linecap="round"/>
+                <path d="M130 40 L135 20" stroke="#e8850a" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M128 18 L140 18" stroke="#e8850a" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="132" cy="40" r="4" fill="#f5a623" opacity="0.9"/>
+                <circle cx="132" cy="40" r="2" fill="#faf3e5"/>
+                <path d="M130 40 L128 65" stroke="#a05a00" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M40 62 L35 62 L30 58 L26 55" stroke="#8a7050" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="45" cy="72" r="12" stroke="#f5e6c8" stroke-width="2.5" fill="none"/>
+                <circle cx="45" cy="72" r="4" fill="#f5e6c8"/><circle cx="45" cy="72" r="1.5" fill="#1a1208"/>
+                <g class="scooter-wheel"><line x1="45" y1="60" x2="45" y2="84" stroke="#f5e6c8" stroke-width="1" opacity="0.5"/><line x1="33" y1="72" x2="57" y2="72" stroke="#f5e6c8" stroke-width="1" opacity="0.5"/><line x1="37" y1="64" x2="53" y2="80" stroke="#f5e6c8" stroke-width="1" opacity="0.5"/><line x1="37" y1="80" x2="53" y2="64" stroke="#f5e6c8" stroke-width="1" opacity="0.5"/></g>
+                <circle cx="120" cy="72" r="12" stroke="#f5e6c8" stroke-width="2.5" fill="none"/>
+                <circle cx="120" cy="72" r="4" fill="#f5e6c8"/><circle cx="120" cy="72" r="1.5" fill="#1a1208"/>
+                <g class="scooter-wheel"><line x1="120" y1="60" x2="120" y2="84" stroke="#f5e6c8" stroke-width="1" opacity="0.5"/><line x1="108" y1="72" x2="132" y2="72" stroke="#f5e6c8" stroke-width="1" opacity="0.5"/><line x1="112" y1="64" x2="128" y2="80" stroke="#f5e6c8" stroke-width="1" opacity="0.5"/><line x1="112" y1="80" x2="128" y2="64" stroke="#f5e6c8" stroke-width="1" opacity="0.5"/></g>
+                <g class="exhaust-puff" style="left:12px;bottom:38px"></g>
+                <g class="exhaust-puff" style="left:8px;bottom:36px"></g>
+                <g class="exhaust-puff" style="left:4px;bottom:34px"></g>
+                <g class="exhaust-puff" style="left:0px;bottom:32px"></g>
+            </svg>
         </div>
         <div class="loading-progress"><div class="loading-progress-fill"></div></div>
-        <div class="loading-delivery-status"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span style="margin-left:8px;font-size:10px;color:var(--text-muted)">Your delivery is on the way...</span></div>
+        <div class="loading-status"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span style="margin-left:8px">From our kitchen to yours...</span></div>
     </div>
     <div class="toast" id="toast"><div class="toast-icon"><i class="ph ph-check"></i></div><span class="toast-text" id="toastText">Added to order!</span></div>
     <div class="mobile-menu" id="mobileMenu">
@@ -306,43 +260,21 @@
         <div class="nav-container">
             <a href="#home" class="nav-logo"><img src="https://ik.imagekit.io/wemustcreate/CLIENTS%20/Fk-logo.png?updatedAt=1778191341888" alt="Family Kitchen Logo"><div class="nav-logo-text"><span class="brand">Family Kitchen</span><span class="tagline">Traditional Comfort Food</span></div></a>
             <div class="nav-halal"><i class="ph ph-certificate"></i> Halal</div>
-            <div class="nav-links"><a href="#home" class="active">Home</a><a href="#menu">Menu</a><a href="#specials">Specials</a><a href="#locations">Locations</a></div>
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="ph ph-list"></i></button>
         </div>
     </nav>
     <section class="hero" id="home">
         <div class="hero-parallax-container" id="heroContainer">
-            <div class="hero-slide active" id="slide1">
-                <video autoplay loop muted playsinline class="hero-media" poster="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/39f36b7718ce2ae6bb9095c61390ecdb32e61703/assets/media/hero%20chips.mp4">
-                    <source src="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/39f36b7718ce2ae6bb9095c61390ecdb32e61703/assets/media/hero%20chips.mp4" type="video/mp4">
-                    <img src="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/39f36b7718ce2ae6bb9095c61390ecdb32e61703/assets/media/Gatsby.png" alt="Family Kitchen Chips">
+            <div class="hero-slide active">
+                <video autoplay muted loop playsinline poster="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/84b3bdc48e29b74776cbb3ada993c3045be7e21c/assets/media/Gatsby.png">
+                    <source src="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/84b3bdc48e29b74776cbb3ada993c3045be7e21c/assets/media/hero%20chips.mp4" type="video/mp4">
                 </video>
                 <div class="hero-overlay"></div>
             </div>
-            <div class="hero-slide" id="slide2">
-                <video autoplay loop muted playsinline class="hero-media">
-                    <source src="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/39f36b7718ce2ae6bb9095c61390ecdb32e61703/assets/media/2ndclip.mp4" type="video/mp4">
-                </video>
-                <div class="hero-overlay"></div>
-            </div>
-            <div class="hero-slide" id="slide3">
-                <img src="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/39f36b7718ce2ae6bb9095c61390ecdb32e61703/assets/media/Gatsby.png" alt="Family Kitchen Gatsby" class="hero-media">
-                <div class="hero-overlay"></div>
-            </div>
-            <div class="hero-slide" id="slide4">
-                <img src="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/39f36b7718ce2ae6bb9095c61390ecdb32e61703/assets/media/burgerbunny.png" alt="Family Kitchen Bunny" class="hero-media">
-                <div class="hero-overlay"></div>
-            </div>
-            <div class="hero-content">
-                <h1 class="hero-title">Family Kitchen</h1>
-                <p class="hero-subtitle">From our kitchen to yours.</p>
-                <div class="hero-badge"><span class="live-dot"></span> Live Order Status • 15 min avg wait</div>
-            </div>
+            <div class="hero-slide"><img src="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/84b3bdc48e29b74776cbb3ada993c3045be7e21c/assets/media/Gatsby.png" alt="Gatsby Special" loading="lazy"><div class="hero-overlay"></div></div>
             <div class="hero-indicators">
                 <button class="hero-dot active" onclick="goToHeroSlide(0)"></button>
                 <button class="hero-dot" onclick="goToHeroSlide(1)"></button>
-                <button class="hero-dot" onclick="goToHeroSlide(2)"></button>
-                <button class="hero-dot" onclick="goToHeroSlide(3)"></button>
             </div>
         </div>
     </section>
@@ -353,219 +285,175 @@
         </div>
         <span class="glow-cta-sub"><i class="ph ph-phone-call"></i> 060 589 6049</span>
         <div class="review-badge"><i class="ph ph-star-fill"></i> 4.8/5 on Google • <a href="https://g.page/r/Cf0FMcjJ9XkAEBE/review" target="_blank" rel="noopener">Share your experience</a></div>
-    </div>
-    <div class="order-status fade-up">
-        <div class="order-status-left"><div class="order-status-icon"><i class="ph ph-clock"></i></div><div class="order-status-text"><h4>Live Order Status</h4><p>Average wait time</p></div></div>
-        <div class="order-status-time">15 min</div>
-    </div>
-    <div class="menu-search-container">
-        <div class="menu-search-wrapper"><i class="ph ph-magnifying-glass menu-search-icon"></i><input type="search" class="menu-search-input" id="menuSearch" placeholder="Search menu: 'chips', 'gatsby', 'chicken'..." aria-label="Search menu items"><button class="menu-search-clear" id="searchClear" aria-label="Clear search"><i class="ph ph-x"></i></button></div>
-        <div class="search-results-count" id="searchResultsCount"></div>
-    </div>
-    <div class="category-tabs" id="categoryTabs">
-        <button class="category-tab active" data-category="all"><i class="ph ph-squares-four"></i> All</button>
-        <button class="category-tab" data-category="chips"><i class="ph ph-cookie"></i> Chips</button>
-        <button class="category-tab" data-category="combos"><i class="ph ph-package"></i> Combos</button>
-        <button class="category-tab" data-category="gatsbys"><i class="ph ph-bread"></i> Gatsbys</button>
-        <button class="category-tab" data-category="rolls"><i class="ph ph-egg"></i> Rolls</button>
-        <button class="category-tab" data-category="burgers"><i class="ph ph-hamburger"></i> Burgers</button>
-        <button class="category-tab" data-category="bunnies"><i class="ph ph-bowl-food"></i> Bunnies</button>
-        <button class="category-tab" data-category="grills"><i class="ph ph-fire"></i> Grills</button>
-        <button class="category-tab" data-category="curry"><i class="ph ph-bowl-food"></i> Curry</button>
-        <button class="category-tab" data-category="extras"><i class="ph ph-plus"></i> Extras</button>
+        <a href="https://searchplaybook-crypto.github.io/" class="backlink-btn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            Search Playbook
+        </a>
     </div>
     <section class="specials-section" id="specials">
         <div class="section-header"><h2>This Week's <span>Specials</span></h2><p>Chef's handpicked favourites</p><div class="section-divider"></div></div>
         <div class="specials-scroll">
-            <div class="special-card fade-up">
-                <img src="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/39f36b7718ce2ae6bb9095c61390ecdb32e61703/assets/media/specials.png" alt="This Week's Special" class="special-card-img" loading="lazy">
-                <div class="special-card-body"><span class="special-card-tag">Chef's Choice</span><h3>Steak Gatsby</h3><p>Grilled steak, chips, polony, and russians in a fresh roll</p><div class="special-card-footer"><span class="special-card-price">R70</span><button class="add-btn" onclick="addToOrder('Steak Gatsby', 70)"><i class="ph ph-plus"></i></button></div></div>
-            </div>
-            <div class="special-card fade-up">
-                <img src="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/39f36b7718ce2ae6bb9095c61390ecdb32e61703/assets/media/specials.png" alt="This Week's Special" class="special-card-img" loading="lazy">
-                <div class="special-card-body"><span class="special-card-tag">Popular</span><h3>Mutton Bunny</h3><p>Traditional South African curry-filled bread bowl</p><div class="special-card-footer"><span class="special-card-price">R85</span><button class="add-btn" onclick="addToOrder('Mutton Bunny', 85)"><i class="ph ph-plus"></i></button></div></div>
-            </div>
-            <div class="special-card fade-up">
-                <div class="special-card-body" style="background: linear-gradient(135deg, #2a1f10, #1a1208);"><span class="special-card-tag">Best Value</span><h3>Family Combo</h3><p>Full chicken & chips — perfect for sharing</p><div class="special-card-footer"><span class="special-card-price">R150</span><button class="add-btn" onclick="addToOrder('Family Combo', 150)"><i class="ph ph-plus"></i></button></div></div>
-            </div>
+            <div class="special-card fade-up"><img src="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/84b3bdc48e29b74776cbb3ada993c3045be7e21c/assets/media/Gatsby.png" alt="Steak Gatsby" class="special-card-img" loading="lazy"><div class="special-card-body"><span class="special-card-tag">Chef's Choice</span><h3>Steak Gatsby</h3><p>Grilled steak, chips, polony & russians</p><div class="special-card-footer"><span class="special-card-price">R70</span><button class="add-btn" onclick="addToOrder('Steak Gatsby', 70)"><i class="ph ph-plus"></i></button></div></div></div>
+            <div class="special-card fade-up"><img src="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/84b3bdc48e29b74776cbb3ada993c3045be7e21c/assets/media/specials.png" alt="Mutton Bunny" class="special-card-img" loading="lazy"><div class="special-card-body"><span class="special-card-tag">Popular</span><h3>Mutton Bunny</h3><p>Traditional curry-filled bread bowl</p><div class="special-card-footer"><span class="special-card-price">R85</span><button class="add-btn" onclick="addToOrder('Mutton Bunny', 85)"><i class="ph ph-plus"></i></button></div></div></div>
+            <div class="special-card fade-up"><img src="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/84b3bdc48e29b74776cbb3ada993c3045be7e21c/assets/media/specials.png" alt="Family Combo" class="special-card-img" loading="lazy"><div class="special-card-body"><span class="special-card-tag">Best Value</span><h3>Family Combo</h3><p>Full chicken & chips - perfect for sharing</p><div class="special-card-footer"><span class="special-card-price">R150</span><button class="add-btn" onclick="addToOrder('Family Combo', 150)"><i class="ph ph-plus"></i></button></div></div></div>
         </div>
     </section>
     <div class="famzee-highlight fade-up">
         <div class="famzee-content">
-            <span class="famzee-badge">🔥 Fan Favourite</span><h3>Famzee Box</h3><p>Steak, Russian, Vienna, Polony — Perfect for sharing with family & friends</p>
+            <span class="famzee-badge">🔥 Fan Favourite</span><h3>Famzee Box</h3><p>Steak, Russian, Vienna, Polony — Perfect for sharing</p>
             <div class="famzee-items"><span class="famzee-item-tag"> Steak</span><span class="famzee-item-tag">🌭 Russian</span><span class="famzee-item-tag"> Vienna</span><span class="famzee-item-tag"> Polony</span></div>
-            <img src="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/39f36b7718ce2ae6bb9095c61390ecdb32e61703/assets/media/famzeebox.png" alt="Famzee Box" style="max-width:100%;border-radius:12px;margin:12px 0;box-shadow:0 4px 20px rgba(0,0,0,0.3)">
+            <img src="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/84b3bdc48e29b74776cbb3ada993c3045be7e21c/assets/media/famzeebox.png" alt="Famzee Box" style="max-width:100%;border-radius:12px;margin:12px 0;box-shadow:0 4px 20px rgba(0,0,0,0.3)">
             <div class="famzee-price">R130</div>
         </div>
     </div>
     <section class="section" id="menu">
         <div class="section-header"><h2>Our <span>Menu</span></h2><p>Explore our full range of traditional favourites</p><div class="section-divider"></div></div>
-        <!-- Menu categories remain unchanged for brevity - full menu structure preserved -->
-        <div class="menu-category fade-up" data-category="chips" data-searchable="true">
-            <div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-cookie"></i></div><div class="menu-cat-info"><h3>Chips</h3><p>Crispy, golden fries made to perfection</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div>
-            <div class="menu-category-body">
-                <div class="menu-item" data-name="Chips" data-desc="Crispy golden fries" data-category="chips"><div class="menu-item-info"><div class="menu-item-name">Chips</div><div class="size-selector"><button class="size-btn active" onclick="selectSize(this, 'S')">S</button><button class="size-btn" onclick="selectSize(this, 'M')">M</button><button class="size-btn" onclick="selectSize(this, 'L')">L</button></div></div><div class="menu-item-right"><span class="menu-item-price" data-s="20" data-m="32" data-l="40">R20</span><button class="menu-item-add" onclick="addToOrder('Chips', 20)"><i class="ph ph-plus"></i></button></div></div>
-            </div>
-        </div>
-        <!-- Additional menu categories would follow the same pattern -->
+        <div class="menu-category fade-up"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-cookie"></i></div><div class="menu-cat-info"><h3>Chips</h3><p>Crispy, golden fries made to perfection</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body"><div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chips</div><div class="size-selector"><button class="size-btn active" onclick="selectSize(this, 'S')">S</button><button class="size-btn" onclick="selectSize(this, 'M')">M</button><button class="size-btn" onclick="selectSize(this, 'L')">L</button></div></div><div class="menu-item-right"><span class="menu-item-price" data-s="20" data-m="32" data-l="40">R20</span><button class="menu-item-add" onclick="addToOrder('Chips', 20)"><i class="ph ph-plus"></i></button></div></div></div></div>
+        <div class="menu-category fade-up"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-package"></i></div><div class="menu-cat-info"><h3>Combo's</h3><p>Satisfying combos with chips</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body">
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Polony & Chips (5pc Garlic)</div></div><div class="menu-item-right"><span class="menu-item-price">R45</span><button class="menu-item-add" onclick="addToOrder('Polony & Chips 5pc Garlic', 45)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Vienna & Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R45</span><button class="menu-item-add" onclick="addToOrder('Vienna & Chips', 45)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Russian & Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R48</span><button class="menu-item-add" onclick="addToOrder('Russian & Chips', 48)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">T Bone & Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R70</span><button class="menu-item-add" onclick="addToOrder('T Bone & Chips', 70)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Fish & Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R55</span><button class="menu-item-add" onclick="addToOrder('Fish & Chips', 55)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">1/4 Chicken & Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R45</span><button class="menu-item-add" onclick="addToOrder('1/4 Chicken & Chips', 45)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">1/2 Chicken & Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R75</span><button class="menu-item-add" onclick="addToOrder('1/2 Chicken & Chips', 75)"><i class="ph ph-plus"></i></button></div></div>
+        </div></div>
+        <div class="menu-category fade-up"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-bread"></i></div><div class="menu-cat-info"><h3>Gatsby</h3><p>Family favourite — loaded sandwich</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body">
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Russians</div><div class="menu-item-desc">Chips, Russians, Polony</div></div><div class="menu-item-right"><span class="menu-item-price">R140</span><button class="menu-item-add" onclick="addToOrder('Gatsby Russians', 140)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Viennas</div><div class="menu-item-desc">Chips, Viennas, Polony</div></div><div class="menu-item-right"><span class="menu-item-price">R140</span><button class="menu-item-add" onclick="addToOrder('Gatsby Viennas', 140)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chicken</div><div class="menu-item-desc">Chips, Chicken Strips, Cheese, Salad</div></div><div class="menu-item-right"><span class="menu-item-price">R160</span><button class="menu-item-add" onclick="addToOrder('Gatsby Chicken', 160)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Family</div><div class="menu-item-desc">Chips, Steak, Viennas, Russians, Polony</div></div><div class="menu-item-right"><span class="menu-item-price">R200</span><button class="menu-item-add" onclick="addToOrder('Gatsby Family', 200)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Full House</div><div class="menu-item-desc">Chips, Steak, Patties, Eggs, Russians, Polony</div></div><div class="menu-item-right"><span class="menu-item-price">R250</span><button class="menu-item-add" onclick="addToOrder('Gatsby Full House', 250)"><i class="ph ph-plus"></i></button></div></div>
+        </div></div>
+        <div class="menu-category fade-up"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-egg"></i></div><div class="menu-cat-info"><h3>Roll's</h3><p>Fresh rolls stuffed with delicious fillings</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body">
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chip Roll</div></div><div class="menu-item-right"><span class="menu-item-price">R20</span><button class="menu-item-add" onclick="addToOrder('Chip Roll', 20)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Hot Dog</div></div><div class="menu-item-right"><span class="menu-item-price">R23</span><button class="menu-item-add" onclick="addToOrder('Hot Dog', 23)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Wors Roll</div></div><div class="menu-item-right"><span class="menu-item-price">R26</span><button class="menu-item-add" onclick="addToOrder('Wors Roll', 26)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Russian Roll</div></div><div class="menu-item-right"><span class="menu-item-price">R28</span><button class="menu-item-add" onclick="addToOrder('Russian Roll', 28)"><i class="ph ph-plus"></i></button></div></div>
+        </div></div>
+        <div class="menu-category fade-up"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-star"></i></div><div class="menu-cat-info"><h3>Specials</h3><p>Chips, cheese & polony roll packed with meaty fillings</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body">
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Polony</div></div><div class="menu-item-right"><span class="menu-item-price">R48</span><button class="menu-item-add" onclick="addToOrder('Special Polony', 48)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Vienna</div></div><div class="menu-item-right"><span class="menu-item-price">R48</span><button class="menu-item-add" onclick="addToOrder('Special Vienna', 48)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Russian</div></div><div class="menu-item-right"><span class="menu-item-price">R50</span><button class="menu-item-add" onclick="addToOrder('Special Russian', 50)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Steak</div></div><div class="menu-item-right"><span class="menu-item-price">R70</span><button class="menu-item-add" onclick="addToOrder('Special Steak', 70)"><i class="ph ph-plus"></i></button></div></div>
+        </div></div>
+        <div class="menu-category fade-up"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-cookie"></i></div><div class="menu-cat-info"><h3>Toasted Sandwiches</h3><p>Crave-worthy toasted sandwiches</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body">
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chip Bread</div></div><div class="menu-item-right"><span class="menu-item-price">R15</span><button class="menu-item-add" onclick="addToOrder('Chip Bread', 15)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Cheese & Tomato</div></div><div class="menu-item-right"><span class="menu-item-price">R20</span><button class="menu-item-add" onclick="addToOrder('Cheese & Tomato', 20)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Cheese & Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R45</span><button class="menu-item-add" onclick="addToOrder('Cheese & Chips Sandwich', 45)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Steak</div></div><div class="menu-item-right"><span class="menu-item-price">R50</span><button class="menu-item-add" onclick="addToOrder('Steak Sandwich', 50)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Steak & Cheese</div></div><div class="menu-item-right"><span class="menu-item-price">R60</span><button class="menu-item-add" onclick="addToOrder('Steak & Cheese Sandwich', 60)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Steak, Cheese & Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R70</span><button class="menu-item-add" onclick="addToOrder('Steak Cheese Chips Sandwich', 70)"><i class="ph ph-plus"></i></button></div></div>
+        </div></div>
+        <div class="menu-category fade-up"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-stack"></i></div><div class="menu-cat-info"><h3>Zee Sandwiches</h3><p>3x sliced toasted chip bread</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body">
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Zee Boy</div><div class="menu-item-desc">4x Polony, Cheese</div></div><div class="menu-item-right"><span class="menu-item-price">R45</span><button class="menu-item-add" onclick="addToOrder('Zee Boy', 45)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Zee Girl</div><div class="menu-item-desc">4x Polony, Patty, Cheese</div></div><div class="menu-item-right"><span class="menu-item-price">R55</span><button class="menu-item-add" onclick="addToOrder('Zee Girl', 55)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Zee Dagwood</div><div class="menu-item-desc">4x Polony, Steak, Patty, Egg, Cheese</div></div><div class="menu-item-right"><span class="menu-item-price">R100</span><button class="menu-item-add" onclick="addToOrder('Zee Dagwood', 100)"><i class="ph ph-plus"></i></button></div></div>
+        </div></div>
+        <div class="menu-category fade-up"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-hamburger"></i></div><div class="menu-cat-info"><h3>Burgers</h3><p>Juicy burgers with fresh ingredients</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body">
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Beef Burger</div></div><div class="menu-item-right"><span class="menu-item-price">R32</span><button class="menu-item-add" onclick="addToOrder('Beef Burger', 32)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Beef Cheese Burger</div></div><div class="menu-item-right"><span class="menu-item-price">R39</span><button class="menu-item-add" onclick="addToOrder('Beef Cheese Burger', 39)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Beef Burger & Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R39</span><button class="menu-item-add" onclick="addToOrder('Beef Burger & Chips', 39)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Beef Cheese Burger & Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R46</span><button class="menu-item-add" onclick="addToOrder('Beef Cheese Burger & Chips', 46)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chicken Burger (Fillet)</div></div><div class="menu-item-right"><span class="menu-item-price">R40</span><button class="menu-item-add" onclick="addToOrder('Chicken Burger', 40)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chicken Cheese Burger</div></div><div class="menu-item-right"><span class="menu-item-price">R47</span><button class="menu-item-add" onclick="addToOrder('Chicken Cheese Burger', 47)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chicken Burger & Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R47</span><button class="menu-item-add" onclick="addToOrder('Chicken Burger & Chips', 47)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chicken Cheese Burger & Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R54</span><button class="menu-item-add" onclick="addToOrder('Chicken Cheese Burger & Chips', 54)"><i class="ph ph-plus"></i></button></div></div>
+        </div></div>
+        <div class="menu-category fade-up"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-bowl-food"></i></div><div class="menu-cat-info"><h3>Bunnies</h3><p>Traditional South African curry-filled bread bowls</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body">
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chip</div></div><div class="menu-item-right"><span class="menu-item-price">R20</span><button class="menu-item-add" onclick="addToOrder('Chip Bunny', 20)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Vienna</div></div><div class="menu-item-right"><span class="menu-item-price">R45</span><button class="menu-item-add" onclick="addToOrder('Vienna Bunny', 45)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Russian</div></div><div class="menu-item-right"><span class="menu-item-price">R50</span><button class="menu-item-add" onclick="addToOrder('Russian Bunny', 50)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Patty</div></div><div class="menu-item-right"><span class="menu-item-price">R50</span><button class="menu-item-add" onclick="addToOrder('Patty Bunny', 50)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Mince</div></div><div class="menu-item-right"><span class="menu-item-price">R50</span><button class="menu-item-add" onclick="addToOrder('Mince Bunny', 50)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chicken</div></div><div class="menu-item-right"><span class="menu-item-price">R55</span><button class="menu-item-add" onclick="addToOrder('Chicken Bunny', 55)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Steak</div></div><div class="menu-item-right"><span class="menu-item-price">R65</span><button class="menu-item-add" onclick="addToOrder('Steak Bunny', 65)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Mutton</div></div><div class="menu-item-right"><span class="menu-item-price">R85</span><button class="menu-item-add" onclick="addToOrder('Mutton Bunny', 85)"><i class="ph ph-plus"></i></button></div></div>
+        </div></div>
+        <div class="menu-category fade-up"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-tortilla"></i></div><div class="menu-cat-info"><h3>Roti Wraps</h3><p>Warm, soft rotis wrapped around your favourite fillings</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body">
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Mince</div></div><div class="menu-item-right"><span class="menu-item-price">R55</span><button class="menu-item-add" onclick="addToOrder('Mince Roti Wrap', 55)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chicken</div></div><div class="menu-item-right"><span class="menu-item-price">R55</span><button class="menu-item-add" onclick="addToOrder('Chicken Roti Wrap', 55)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Steak</div></div><div class="menu-item-right"><span class="menu-item-price">R65</span><button class="menu-item-add" onclick="addToOrder('Steak Roti Wrap', 65)"><i class="ph ph-plus"></i></button></div></div>
+        </div></div>
+        <div class="menu-category fade-up"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-bowl-food"></i></div><div class="menu-cat-info"><h3>Pap</h3><p>Traditional African pap served with hearty sides</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body"><div class="pap-grid">
+            <div class="pap-item" onclick="addToOrder('1/4 Chicken & Gravy Pap', 45)"><span class="pap-item-name">1/4 Chicken & Gravy</span><span class="pap-item-price">R45</span></div>
+            <div class="pap-item" onclick="addToOrder('Wors & Gravy Pap', 35)"><span class="pap-item-name">Wors & Gravy</span><span class="pap-item-price">R35</span></div>
+            <div class="pap-item" onclick="addToOrder('T.Bone & Gravy Pap', 70)"><span class="pap-item-name">T.Bone & Gravy</span><span class="pap-item-price">R70</span></div>
+            <div class="pap-item" onclick="addToOrder('Chicken Curry Pap', 50)"><span class="pap-item-name">Chicken Curry</span><span class="pap-item-price">R50</span></div>
+            <div class="pap-item" onclick="addToOrder('Beef & Gravy Pap', 50)"><span class="pap-item-name">Beef & Gravy</span><span class="pap-item-price">R50</span></div>
+        </div></div></div>
+        <div class="menu-category fade-up"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-users"></i></div><div class="menu-cat-info"><h3>Family Combos</h3><p>Perfect for sharing with family and friends</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body">
+            <div class="family-combo-item"><span class="family-combo-name">Full Chicken & Chips</span><span class="family-combo-price">R150</span><button class="family-combo-btn" onclick="addToOrder('Family Full Chicken & Chips', 150)"><i class="ph ph-plus"></i></button></div>
+            <div class="family-combo-item"><span class="family-combo-name">4 x T.Bone & L Chips</span><span class="family-combo-price">R200</span><button class="family-combo-btn" onclick="addToOrder('Family 4x T.Bone & L Chips', 200)"><i class="ph ph-plus"></i></button></div>
+            <div class="family-combo-item"><span class="family-combo-name">2 x Russians, 3 x Viennas, 10 x Polony, L Chips</span><span class="family-combo-price">R150</span><button class="family-combo-btn" onclick="addToOrder('Family Mixed Combo', 150)"><i class="ph ph-plus"></i></button></div>
+            <div class="family-combo-item"><span class="family-combo-name">6 x Wors & L Chips</span><span class="family-combo-price">R150</span><button class="family-combo-btn" onclick="addToOrder('Family 6x Wors & L Chips', 150)"><i class="ph ph-plus"></i></button></div>
+            <div class="family-combo-item"><span class="family-combo-name">Ribs 400g & L Chips</span><span class="family-combo-price">R150</span><button class="family-combo-btn" onclick="addToOrder('Family Ribs 400g & L Chips', 150)"><i class="ph ph-plus"></i></button></div>
+            <div class="family-combo-item"><span class="family-combo-name">Ribs 400g & L Chips (Premium)</span><span class="family-combo-price">R210</span><button class="family-combo-btn" onclick="addToOrder('Family Ribs Premium', 210)"><i class="ph ph-plus"></i></button></div>
+        </div></div>
+        <div class="menu-category fade-up"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-fire"></i></div><div class="menu-cat-info"><h3>Grills</h3><p>Grilled to perfection, served with crispy chips</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body">
+            <div class="grill-item"><div class="menu-item-info"><div class="menu-item-name">400g Ribs & M Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R105</span><button class="menu-item-add" onclick="addToOrder('400g Ribs & M Chips', 105)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="grill-item"><div class="menu-item-info"><div class="menu-item-name">600g Ribs & M Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R160</span><button class="menu-item-add" onclick="addToOrder('600g Ribs & M Chips', 160)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="grill-item"><div class="menu-item-info"><div class="menu-item-name">6x Wings & M Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R65</span><button class="menu-item-add" onclick="addToOrder('6x Wings & M Chips', 65)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="grill-item"><div class="menu-item-info"><div class="menu-item-name">8x Wings & L Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R85</span><button class="menu-item-add" onclick="addToOrder('8x Wings & L Chips', 85)"><i class="ph ph-plus"></i></button></div></div>
+        </div></div>
+        <div class="menu-category fade-up"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-bowl-food"></i></div><div class="menu-cat-info"><h3>Curry & Rice</h3><p>Delicious curry served over a bed of fluffy rice</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body">
+            <div class="curry-item"><div class="menu-item-info"><div class="menu-item-name">Mince</div></div><div class="menu-item-right"><span class="menu-item-price">R50</span><button class="menu-item-add" onclick="addToOrder('Mince Curry & Rice', 50)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="curry-item"><div class="menu-item-info"><div class="menu-item-name">Chicken</div></div><div class="menu-item-right"><span class="menu-item-price">R55</span><button class="menu-item-add" onclick="addToOrder('Chicken Curry & Rice', 55)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="curry-item"><div class="menu-item-info"><div class="menu-item-name">Beef</div></div><div class="menu-item-right"><span class="menu-item-price">R65</span><button class="menu-item-add" onclick="addToOrder('Beef Curry & Rice', 65)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="curry-item"><div class="menu-item-info"><div class="menu-item-name">Mutton</div></div><div class="menu-item-right"><span class="menu-item-price">R85</span><button class="menu-item-add" onclick="addToOrder('Mutton Curry & Rice', 85)"><i class="ph ph-plus"></i></button></div></div>
+        </div></div>
+        <div class="menu-category fade-up"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-plus"></i></div><div class="menu-cat-info"><h3>Extras</h3><p>Add-ons and sides to complete your meal</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body"><div class="extras-grid">
+            <div class="extra-item" onclick="addToOrder('Polony Extra', 3)"><div class="extra-item-name">Polony</div><div class="extra-item-price">R3</div></div>
+            <div class="extra-item" onclick="addToOrder('Vienna Extra', 16)"><div class="extra-item-name">Vienna</div><div class="extra-item-price">R16</div></div>
+            <div class="extra-item" onclick="addToOrder('Russian Extra', 18)"><div class="extra-item-name">Russian</div><div class="extra-item-price">R18</div></div>
+            <div class="extra-item" onclick="addToOrder('T.Bone Extra', 40)"><div class="extra-item-name">T.Bone</div><div class="extra-item-price">R40</div></div>
+            <div class="extra-item" onclick="addToOrder('Patty Extra', 17)"><div class="extra-item-name">Patty</div><div class="extra-item-price">R17</div></div>
+            <div class="extra-item" onclick="addToOrder('Wors Extra', 18)"><div class="extra-item-name">Wors</div><div class="extra-item-price">R18</div></div>
+            <div class="extra-item" onclick="addToOrder('Steak Extra', 40)"><div class="extra-item-name">Steak</div><div class="extra-item-price">R40</div></div>
+            <div class="extra-item" onclick="addToOrder('1/4 Chicken Extra', 30)"><div class="extra-item-name">1/4 Chicken</div><div class="extra-item-price">R30</div></div>
+            <div class="extra-item" onclick="addToOrder('Fried Fish Extra', 30)"><div class="extra-item-name">Fried Fish</div><div class="extra-item-price">R30</div></div>
+            <div class="extra-item" onclick="addToOrder('Roti Extra', 8)"><div class="extra-item-name">Roti</div><div class="extra-item-price">R8</div></div>
+            <div class="extra-item" onclick="addToOrder('Pap Extra', 10)"><div class="extra-item-name">Pap</div><div class="extra-item-price">R10</div></div>
+            <div class="extra-item" onclick="addToOrder('Gravy Extra', 15)"><div class="extra-item-name">Gravy</div><div class="extra-item-price">R15</div></div>
+            <div class="extra-item" onclick="addToOrder('Fried Egg Extra', 7)"><div class="extra-item-name">Fried Egg</div><div class="extra-item-price">R7</div></div>
+            <div class="extra-item" onclick="addToOrder('Sliced Cheese Extra', 7)"><div class="extra-item-name">Sliced Cheese</div><div class="extra-item-price">R7</div></div>
+            <div class="extra-item" onclick="addToOrder('Toast Extra', 3)"><div class="extra-item-name">Toast</div><div class="extra-item-price">R3</div></div>
+            <div class="extra-item" onclick="addToOrder('Sliced Bread Extra', 2)"><div class="extra-item-name">Sliced Bread</div><div class="extra-item-price">R2</div></div>
+            <div class="extra-item" onclick="addToOrder('Samoosa Fried', 70)"><div class="extra-item-name">Samoosa Fried</div><div class="extra-item-price">R70</div></div>
+            <div class="extra-item" onclick="addToOrder('Samoosa Frozen', 50)"><div class="extra-item-name">Samoosa Frozen</div><div class="extra-item-price">R50</div></div>
+        </div></div></div>
     </section>
-    <div class="delivery-banner">
-        <div class="delivery-content"><i class="ph ph-moped"></i><div class="delivery-text"><h3>We Deliver!</h3><p> 060 589 6049</p></div></div>
-    </div>
     <section class="locations-section" id="locations">
         <div class="section-header"><h2>Our <span>Location</span></h2><p>Visit us at our Newclare branch</p><div class="section-divider"></div></div>
-        <div class="location-card fade-up">
-            <div class="location-card-top"><div class="location-icon"><i class="ph ph-map-pin"></i></div><div><div class="location-name">Newclare Branch</div><div class="location-address">69 Price St, Newclare</div></div></div>
-            <div class="location-hours"><i class="ph ph-clock"></i> Open Now</div>
-        </div>
+        <div class="location-card fade-up"><div class="location-card-top"><div class="location-icon"><i class="ph ph-map-pin"></i></div><div><div class="location-name">Newclare Branch</div><div class="location-address">69 Price St, Newclare</div></div></div><div class="location-hours"><i class="ph ph-clock"></i> Open Now</div></div>
     </section>
     <footer class="footer">
         <div class="footer-logo"><img src="https://ik.imagekit.io/wemustcreate/CLIENTS%20/Fk-logo.png?updatedAt=1778191341888" alt="Family Kitchen"><div class="footer-logo-text"><div class="brand">Family Kitchen</div><div class="tagline">Traditional Comfort Food</div></div></div>
         <div class="footer-reviews"><a href="https://g.page/r/Cf0FMcjJ9XkAEBE/review" target="_blank" rel="noopener"><i class="ph ph-star-fill"></i> Leave a Google Review</a></div>
         <div class="footer-links"><a href="#home">Home</a><a href="#menu">Menu</a><a href="#locations">Locations</a><a href="tel:0605896049">Contact Us</a><a href="https://searchplaybook.blogspot.com/" target="_blank" rel="noopener">Legal</a></div>
-        <div class="footer-legal"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span>Designed & Developed by</span><a href="https://searchplaybook.blogspot.com/" target="_blank" rel="noopener">We Must Create</a></div>
         <div class="footer-social"><a href="#"><i class="ph ph-facebook-logo"></i></a><a href="#"><i class="ph ph-instagram-logo"></i></a><a href="https://wa.me/27605896049" target="_blank" rel="noopener"><i class="ph ph-whatsapp-logo"></i></a><a href="tel:0605896049"><i class="ph ph-phone"></i></a></div>
         <p class="footer-copy">© 2024 Family Kitchen. Traditional Comfort Food. Halal Certified.</p>
     </footer>
     <div class="floating-order"><button class="floating-order-btn" onclick="checkoutViaWhatsApp()"><i class="ph ph-whatsapp-logo"></i><span class="order-badge" id="orderCount">0</span></button></div>
     <script>
-        // Core functionality preserved: loading screen, carousel, search, WhatsApp checkout, etc.
-        window.addEventListener('load', () => { setTimeout(() => { document.getElementById('loadingScreen').classList.add('hidden'); }, 3000); });
-        let currentHeroSlide = 0;
-        const heroSlides = document.querySelectorAll('.hero-slide');
-        const heroDots = document.querySelectorAll('.hero-dot');
-        const heroContainer = document.getElementById('heroContainer');
-        let heroInterval;
-        function goToHeroSlide(index) {
-            heroSlides[currentHeroSlide].classList.remove('active');
-            heroDots[currentHeroSlide].classList.remove('active');
-            currentHeroSlide = index;
-            heroSlides[currentHeroSlide].classList.add('active');
-            heroDots[currentHeroSlide].classList.add('active');
-            if (currentHeroSlide === 0) { const video = heroSlides[0].querySelector('video'); if (video) { video.currentTime = 0; video.play().catch(() => {}); } }
-            resetHeroAutoSlide();
-        }
-        function nextHeroSlide() { goToHeroSlide((currentHeroSlide + 1) % heroSlides.length); }
-        function resetHeroAutoSlide() { clearInterval(heroInterval); heroInterval = setInterval(nextHeroSlide, 6000); }
-        heroInterval = setInterval(nextHeroSlide, 6000);
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            const heroHeight = heroContainer.offsetHeight;
-            if (scrollY < heroHeight) { const parallaxOffset = scrollY * 0.3; heroSlides.forEach(slide => { slide.style.transform = `translateY(${parallaxOffset}px)`; }); }
-        }, { passive: true });
-        let lastScrollY = 0;
-        window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-            if (currentScrollY > lastScrollY + 300 && currentHeroSlide === 0) { const video = heroSlides[0].querySelector('video'); if (video) { video.currentTime = 0; video.play().catch(() => {}); } lastScrollY = currentScrollY; }
-        }, { passive: true });
-        window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50); });
-        const searchInput = document.getElementById('menuSearch');
-        const searchClear = document.getElementById('searchClear');
-        const searchResultsCount = document.getElementById('searchResultsCount');
-        let searchTimeout;
-        searchInput.addEventListener('input', function() {
-            clearTimeout(searchTimeout);
-            const query = this.value.trim().toLowerCase();
-            searchClear.classList.toggle('visible', query.length > 0);
-            searchTimeout = setTimeout(() => { if (query.length === 0) { resetMenuFilter(); searchResultsCount.textContent = ''; return; } filterMenu(query); }, 150);
-        });
-        searchClear.addEventListener('click', function() { searchInput.value = ''; searchClear.classList.remove('visible'); resetMenuFilter(); searchResultsCount.textContent = ''; searchInput.focus(); });
-        function filterMenu(query) {
-            const categories = document.querySelectorAll('.menu-category[data-searchable="true"]');
-            let visibleItems = 0;
-            categories.forEach(category => {
-                const items = category.querySelectorAll('.menu-item, .pap-item, .family-combo-item, .grill-item, .curry-item, .extra-item');
-                let categoryHasMatch = false;
-                items.forEach(item => {
-                    const name = item.dataset.name?.toLowerCase() || '';
-                    const desc = item.dataset.desc?.toLowerCase() || '';
-                    const cat = item.dataset.category?.toLowerCase() || '';
-                    if (name.includes(query) || desc.includes(query) || cat.includes(query)) { item.style.display = 'flex'; categoryHasMatch = true; visibleItems++; item.style.boxShadow = '0 0 0 2px rgba(232,133,10,0.3)'; setTimeout(() => { item.style.boxShadow = ''; }, 1000); } else { item.style.display = 'none'; }
-                });
-                if (categoryHasMatch) { category.style.display = 'block'; if (!category.classList.contains('open')) category.classList.add('open'); } else { category.style.display = 'none'; }
-            });
-            if (visibleItems > 0) { searchResultsCount.textContent = `${visibleItems} result${visibleItems !== 1 ? 's' : ''} found for "${query}"`; } else { searchResultsCount.innerHTML = `<div class="search-empty-state"><i class="ph ph-magnifying-glass"></i>No items match "${query}"<br>Try searching for "chips", "chicken", or "gatsby"</div>`; }
-            if (typeof gtag !== 'undefined') { gtag('event', 'menu_search', { 'search_term': query, 'results_count': visibleItems }); }
-        }
-        function resetMenuFilter() {
-            document.querySelectorAll('.menu-category[data-searchable="true"]').forEach(cat => {
-                cat.style.display = 'block';
-                cat.querySelectorAll('.menu-item, .pap-item, .family-combo-item, .grill-item, .curry-item, .extra-item').forEach(item => { item.style.display = ''; });
-            });
-        }
-        document.querySelectorAll('.category-tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                const category = tab.dataset.category;
-                document.querySelectorAll('.menu-category').forEach(cat => {
-                    if (category === 'all') { cat.style.display = 'block'; } else {
-                        cat.style.display = cat.dataset.category === category ? 'block' : 'none';
-                        if (cat.dataset.category === category && !cat.classList.contains('open')) cat.classList.add('open');
-                    }
-                });
-            });
-        });
-        function toggleCategory(header) { header.parentElement.classList.toggle('open'); }
-        function selectSize(btn, size) {
-            btn.parentElement.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            const priceEl = btn.closest('.menu-item').querySelector('.menu-item-price');
-            const price = priceEl.dataset[size.toLowerCase()];
-            priceEl.textContent = `R${price}`;
-            btn.closest('.menu-item').querySelector('.menu-item-add').setAttribute('onclick', `addToOrder('Chips ${size}', ${price})`);
-        }
-        let orderItems = [];
-        function addToOrder(name, price) {
-            const existingItem = orderItems.find(item => item.name === name);
-            if (existingItem) { existingItem.qty += 1; } else { orderItems.push({ name, price, qty: 1 }); }
-            updateOrderCount();
-            showToast(`${name} added! — R${price}`);
-            const btn = event.target.closest('.add-btn, .menu-item-add, .family-combo-btn, .extra-item, .pap-item');
-            if (btn) { btn.classList.add('added'); setTimeout(() => btn.classList.remove('added'), 500); }
-            if (typeof gtag !== 'undefined') { gtag('event', 'add_to_order', { 'item_name': name, 'price': price, 'currency': 'ZAR' }); }
-        }
-        function updateOrderCount() {
-            const totalQty = orderItems.reduce((sum, item) => sum + item.qty, 0);
-            document.getElementById('orderCount').textContent = totalQty;
-        }
-        function checkoutViaWhatsApp() {
-            if (orderItems.length === 0) { showToast('Your cart is empty! Add items first.'); return; }
-            let message = "Hi Family Kitchen! 🍽️ New Order:\n";
-            message += "--------------------------\n";
-            let total = 0;
-            orderItems.forEach((item, index) => {
-                const lineTotal = item.price * item.qty;
-                message += `${item.qty}x ${item.name} - R${lineTotal}\n`;
-                total += lineTotal;
-            });
-            message += "--------------------------\n";
-            message += `Total: R${total}\n`;
-            message += "--------------------------\n\n";
-            message += "Please confirm availability & delivery time. Thank you!";
-            const encodedMessage = encodeURIComponent(message);
-            const waLink = `https://wa.me/27605896049?text=${encodedMessage}`;
-            window.open(waLink, '_blank');
-            if (typeof gtag !== 'undefined') { gtag('event', 'checkout_whatsapp', { 'value': total, 'currency': 'ZAR', 'items': orderItems.length }); }
-        }
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            document.getElementById('toastText').textContent = message;
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 2500);
-        }
-        function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
-        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-        window.addEventListener('scroll', () => {
-            let current = '';
-            document.querySelectorAll('section[id], .hero').forEach(section => { if (window.scrollY >= section.offsetTop - 200) current = section.getAttribute('id'); });
-            document.querySelectorAll('.nav-links a').forEach(link => { link.classList.remove('active'); if (link.getAttribute('href') === `#${current}`) link.classList.add('active'); });
-        });
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) { e.preventDefault(); const target = document.querySelector(this.getAttribute('href')); if (target) target.scrollIntoView({ behavior: 'smooth' }); });
-        });
-        searchInput.addEventListener('keydown', (e) => { if (e.key === 'Escape') { searchInput.value = ''; searchClear.classList.remove('visible'); resetMenuFilter(); searchResultsCount.textContent = ''; } });
+        window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('loadingScreen').classList.add('hidden')},2800)});
+        let currentHeroSlide=0;const heroSlides=document.querySelectorAll('.hero-slide');const heroDots=document.querySelectorAll('.hero-dot');let heroInterval;
+        function goToHeroSlide(index){heroSlides[currentHeroSlide].classList.remove('active');heroDots[currentHeroSlide].classList.remove('active');currentHeroSlide=index;heroSlides[currentHeroSlide].classList.add('active');heroDots[currentHeroSlide].classList.add('active');const video=heroSlides[currentHeroSlide].querySelector('video');if(video){video.play().catch(()=>{})}resetHeroAutoSlide()}
+        function nextHeroSlide(){goToHeroSlide((currentHeroSlide+1)%heroSlides.length)}
+        function resetHeroAutoSlide(){clearInterval(heroInterval);heroInterval=setInterval(nextHeroSlide,5000)}
+        heroInterval=setInterval(nextHeroSlide,5000);
+        window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50)});
+        let orderItems=[];
+        function addToOrder(name,price){const existingItem=orderItems.find(item=>item.name===name);if(existingItem){existingItem.qty+=1}else{orderItems.push({name,price,qty:1})}updateOrderCount();showToast(`${name} added! — R${price}`)}
+        function updateOrderCount(){const totalQty=orderItems.reduce((sum,item)=>sum+item.qty,0);document.getElementById('orderCount').textContent=totalQty}
+        function checkoutViaWhatsApp(){if(orderItems.length===0){showToast('Your cart is empty! Add items first.');return}let message="Hi Family Kitchen! 🍽️ New Order:\n";message+="--------------------------\n";let total=0;orderItems.forEach((item)=>{const lineTotal=item.price*item.qty;message+=`${item.qty}x ${item.name} - R${lineTotal}\n`;total+=lineTotal});message+="--------------------------\n";message+=`Total: R${total}\n\n`;message+="Please confirm availability & delivery time. Thank you!";const encodedMessage=encodeURIComponent(message);window.open(`https://wa.me/27605896049?text=${encodedMessage}`,'_blank')}
+        function showToast(message){const toast=document.getElementById('toast');document.getElementById('toastText').textContent=message;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2500)}
+        function toggleCategory(header){header.parentElement.classList.toggle('open')}
+        function selectSize(btn,size){btn.parentElement.querySelectorAll('.size-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const priceEl=btn.closest('.menu-item').querySelector('.menu-item-price');const price=priceEl.dataset[size.toLowerCase()];priceEl.textContent=`R${price}`;btn.closest('.menu-item').querySelector('.menu-item-add').setAttribute('onclick',`addToOrder('Chips ${size}', ${price})`)}
+        function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+        const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible')})},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+        document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+        window.addEventListener('scroll',()=>{const scrollY=window.scrollY;const heroContainer=document.getElementById('heroContainer');if(heroContainer&&scrollY<500){heroContainer.style.transform=`translateY(${scrollY*0.3}px)`}},{passive:true});
     </script>
 </body>
 </html>
