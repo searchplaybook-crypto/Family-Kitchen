@@ -1,3 +1,4 @@
+
 <html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,8 +36,32 @@
         :root{--wood-dark:#1a1208;--wood-medium:#2a1f10;--wood-light:#3d2e18;--orange-primary:#e8850a;--orange-light:#f5a623;--orange-glow:#ff9d00;--orange-dark:#c06e00;--cream:#f5e6c8;--cream-light:#faf3e5;--text-light:#f5e6c8;--text-muted:#a08a6a;--halal-green:#2ecc71}
         *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
         body{font-family:'Poppins',sans-serif;background:var(--wood-dark);color:var(--text-light);overflow-x:hidden;-webkit-font-smoothing:antialiased;position:relative}
+        /* CHANGED: Opacity from 0.22 to 0.17 */
         body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background-image:url('https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/84b3bdc48e29b74776cbb3ada993c3045be7e21c/assets/media/bg.png');background-size:cover;background-position:center;background-attachment:fixed;opacity:0.17;z-index:-2;pointer-events:none}
         body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(180deg,rgba(26,18,8,0.88),rgba(26,18,8,0.78));z-index:-1;pointer-events:none}
+        
+        /* ADDED: Floating Wait Time Pill */
+        .wait-pill {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--halal-green), #27ae60);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            z-index: 9999;
+            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.4);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            animation: pulse 2s infinite;
+        }
+        .wait-pill::before { content: '⏱️'; font-size: 1.1rem; }
+        @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.05)} }
+        @media(max-width:768px) { .wait-pill { top:auto; bottom:20px; right:20px; font-size:0.85rem; padding:8px 16px; } }
+
         .loading-screen{position:fixed;inset:0;background:linear-gradient(180deg,var(--wood-dark),#0d0a04);z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.8s ease,visibility 0.8s ease;overflow:hidden}
         .loading-screen.hidden{opacity:0;visibility:hidden}
         .loading-logo{width:100px;height:100px;object-fit:contain;animation:logoPulse 1.5s ease-in-out infinite;filter:drop-shadow(0 0 20px rgba(232,133,10,0.4))}
@@ -109,9 +134,26 @@
         .section-header p{font-size:13px;color:var(--text-muted);font-weight:300}
         .section-divider{width:60px;height:3px;background:linear-gradient(90deg,transparent,var(--orange-primary),transparent);margin:12px auto 0;border-radius:2px}
         .specials-section{padding:30px 0;overflow:hidden}
-        .specials-scroll{display:flex;gap:16px;padding:0 20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+        
+        /* MODIFIED: Responsive Specials Grid */
+        .specials-scroll{
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            padding: 0 20px;
+            scrollbar-width: none;
+        }
         .specials-scroll::-webkit-scrollbar{display:none}
-        .special-card{flex-shrink:0;width:300px;scroll-snap-align:center;background:linear-gradient(145deg,rgba(42,31,16,0.8),rgba(26,18,8,0.9));border:1px solid rgba(232,133,10,0.12);border-radius:20px;overflow:hidden;transition:all 0.4s;box-shadow:0 4px 12px rgba(0,0,0,0.2)}
+        
+        .special-card{
+            width: 100%;
+            background:linear-gradient(145deg,rgba(42,31,16,0.8),rgba(26,18,8,0.9));
+            border:1px solid rgba(232,133,10,0.12);
+            border-radius:20px;
+            overflow:hidden;
+            transition:all 0.4s;
+            box-shadow:0 4px 12px rgba(0,0,0,0.2);
+        }
         .special-card:hover{transform:translateY(-6px);border-color:rgba(232,133,10,0.35);box-shadow:0 8px 25px rgba(0,0,0,0.3)}
         .special-card-img{width:100%;height:180px;object-fit:cover}
         .special-card-body{padding:16px}
@@ -123,6 +165,16 @@
         .add-btn{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--orange-primary),var(--orange-glow));border:none;color:var(--wood-dark);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.3s;box-shadow:0 3px 10px rgba(232,133,10,0.3)}
         .add-btn:hover{transform:scale(1.15) rotate(90deg);box-shadow:0 0 25px rgba(232,133,10,0.5)}
         .add-btn:active{transform:scale(0.9)}
+        
+        /* Responsive Breakpoints for Specials */
+        @media (min-width: 768px) {
+            .specials-scroll { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 1024px) {
+            .specials-scroll { grid-template-columns: repeat(3, 1fr); }
+            .section { max-width: 1200px; }
+        }
+
         .menu-category{margin-bottom:12px;border:1px solid rgba(255,255,255,0.05);border-radius:16px;overflow:hidden;background:rgba(255,255,255,0.015);transition:all 0.3s;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
         .menu-category:hover{border-color:rgba(232,133,10,0.12)}
         .menu-category-header{padding:16px 20px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:all 0.3s;user-select:none}
@@ -164,6 +216,40 @@
         .location-name{font-size:16px;font-weight:700;color:var(--cream-light)}
         .location-address{font-size:12px;color:var(--text-muted)}
         .location-hours{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--halal-green);font-weight:600}
+        
+        /* ADDED: Map Container Styles */
+        .map-container {
+            width: 100%;
+            height: 300px;
+            margin-top: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .map-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            padding: 12px 24px;
+            background: var(--halal-green);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        .map-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.4);
+        }
+
         .footer{background:linear-gradient(180deg,var(--wood-medium),#0d0a04);border-top:1px solid rgba(232,133,10,0.08);padding:44px 20px;text-align:center;position:relative;z-index:1}
         .footer-logo{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:20px}
         .footer-logo img{width:50px;height:50px;object-fit:contain}
@@ -219,6 +305,9 @@
     </style>
 </head>
 <body>
+    <!-- ADDED: Floating Wait Time Pill -->
+    <div class="wait-pill">15min wait time</div>
+
     <div class="loading-screen hidden" id="loadingScreen">
         <img src="https://ik.imagekit.io/wemustcreate/CLIENTS%20/Fk-logo.png?updatedAt=1778191341888" alt="Family Kitchen Logo" class="loading-logo">
         <div class="loading-text"><h2>Family Kitchen</h2><p>Preparing your menu</p></div>
@@ -421,10 +510,42 @@
             <div class="extra-item" onclick="addToOrder('Samoosa Frozen', 50)"><div class="extra-item-name">Samoosa Frozen</div><div class="extra-item-price">R50</div></div>
         </div></div></div>
     </section>
+    
+    <!-- MODIFIED: Location Section with Map -->
     <section class="locations-section" id="locations">
         <div class="section-header"><h2>Our <span>Location</span></h2><p>Visit us at our Newclare branch</p><div class="section-divider"></div></div>
-        <div class="location-card fade-up"><div class="location-card-top"><div class="location-icon"><i class="ph ph-map-pin"></i></div><div><div class="location-name">Newclare Branch</div><div class="location-address">69 Price St, Newclare</div></div></div><div class="location-hours"><i class="ph ph-clock"></i> Open Now</div></div>
+        <div class="location-card fade-up">
+            <div class="location-card-top">
+                <div class="location-icon"><i class="ph ph-map-pin"></i></div>
+                <div>
+                    <div class="location-name">Newclare Branch</div>
+                    <div class="location-address">69 Price St, Newclare</div>
+                </div>
+            </div>
+            <div class="location-hours"><i class="ph ph-clock"></i> Open Now</div>
+            
+            <!-- ADDED: Map Container -->
+            <div class="map-container">
+                <iframe 
+                    src="https://storage.googleapis.com/maps-solutions-p2na371tx8/locator-plus/l4ax/locator-plus.html"
+                    width="100%" 
+                    height="100%"
+                    style="border:0;"
+                    loading="lazy"
+                    allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            
+            <!-- ADDED: Directions Button -->
+            <div style="text-align: center;">
+                <a href="https://wa.me/27605896049?text=Hi%20Family%20Kitchen!%20I%20need%20directions." class="map-btn">
+                    <i class="ph ph-whatsapp-logo"></i> Get Directions on WhatsApp
+                </a>
+            </div>
+        </div>
     </section>
+
     <footer class="footer">
         <div class="footer-logo"><img src="https://ik.imagekit.io/wemustcreate/CLIENTS%20/Fk-logo.png?updatedAt=1778191341888" alt="Family Kitchen"><div class="footer-logo-text"><div class="brand">Family Kitchen</div><div class="tagline">Traditional Comfort Food</div></div></div>
         <div class="footer-reviews"><a href="https://g.page/r/Cf0FMcjJ9XkAEBE/review" target="_blank" rel="noopener"><i class="ph ph-star-fill"></i> Leave a Google Review</a></div>
