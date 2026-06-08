@@ -9,7 +9,7 @@ This repository hosts the digital infrastructure for **Family Kitchen**, a tradi
 
 | Pillar | Service Offering | Strategy |
 | :--- | :--- | :--- |
-| **Visibility** | Local Comfort Food SEO | Dominating "Gatsby," "Bunny Chow," and "Halaal" searches in Newlands/Newclare. |
+| **Visibility** | Local Comfort Food SEO | Dominating "Gatsby," “Hot Chips" "Bunny Chow," and "Halaal" searches in Newlands/Newclare. |
 | **Privacy** | Customer Data Safety | Lean code architecture that doesn't track PII, aligning with digital safety standards. |
 | **Safety** | Verified Halaal Status | Clear digital markers for certification and food prep standards. |
 
@@ -24,7 +24,7 @@ This repository hosts the digital infrastructure for **Family Kitchen**, a tradi
 ---
 
 ## 3. Tooling & Automation
-
+ 
 ### A. Dynamic Menu Engine
 * **Action:** Modular code allowing for rapid updates to "This Week's Specials" without disrupting the core SERP ranking.
 ### B. Live Order Integration
@@ -46,12 +46,6 @@ This repository hosts the digital infrastructure for **Family Kitchen**, a tradi
   "url": "[https://searchplaybook-crypto.github.io/Family-Kitchen/](https://searchplaybook-crypto.github.io/Family-Kitchen/)",
   "telephone": "+27605896049",
   "address": [
-    {
-      "@type": "PostalAddress",
-      "streetAddress": "117 Main Rd",
-      "addressLocality": "Newlands",
-      "addressRegion": "Johannesburg",
-      "addressCountry": "ZA"
     },
     {
       "@type": "PostalAddress",
