@@ -1,4 +1,3 @@
-
 <html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,8 +42,9 @@
         /* ADDED: Floating Wait Time Pill */
         .wait-pill {
             position: fixed;
-            top: 20px;
-            right: 20px;
+            bottom: 100px;
+            right: 24px;
+            top: auto;
             background: linear-gradient(135deg, var(--halal-green), #27ae60);
             color: white;
             padding: 10px 20px;
@@ -57,10 +57,55 @@
             align-items: center;
             gap: 8px;
             animation: pulse 2s infinite;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .wait-pill.countdown-active {
+            font-size: 1.05rem;
+            padding: 12px 24px;
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+        }
+        .wait-pill.pop-out-zoom {
+            animation: popOutZoom 0.6s ease-in-out forwards;
         }
         .wait-pill::before { content: '⏱️'; font-size: 1.1rem; }
         @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.05)} }
-        @media(max-width:768px) { .wait-pill { top:auto; bottom:20px; right:20px; font-size:0.85rem; padding:8px 16px; } }
+        @keyframes popOutZoom {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.35); }
+            100% { transform: scale(1); }
+        }
+        @media(max-width:768px) { 
+            .wait-pill { 
+                bottom: 96px; 
+                right: 20px; 
+                font-size: 0.85rem; 
+                padding: 8px 16px; 
+            } 
+            .wait-pill.countdown-active {
+                font-size: 0.95rem;
+                padding: 10px 20px;
+            }
+        }
+
+        .secret-unlock-anim {
+            animation: secretReveal 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+        }
+        @keyframes secretReveal {
+            0% {
+                opacity: 0;
+                transform: scale(0.3) translateY(-100px);
+                box-shadow: 0 0 50px rgba(232, 133, 10, 0.8);
+            }
+            50% {
+                box-shadow: 0 0 80px rgba(232, 133, 10, 1), 0 0 30px rgba(255, 157, 0, 0.8);
+                transform: scale(1.08) translateY(-10px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+                box-shadow: 0 4px 15px rgba(232, 133, 10, 0.3);
+            }
+        }
 
         .loading-screen{position:fixed;inset:0;background:linear-gradient(180deg,var(--wood-dark),#0d0a04);z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.8s ease,visibility 0.8s ease;overflow:hidden}
         .loading-screen.hidden{opacity:0;visibility:hidden}
@@ -92,7 +137,29 @@
         .nav-logo-text{display:flex;flex-direction:column;line-height:1.1}
         .nav-logo-text .brand{font-family:'Cookie',cursive;font-size:18px;color:var(--orange-light)}
         .nav-logo-text .tagline{font-size:8px;color:var(--text-muted);font-weight:500;letter-spacing:1.5px;text-transform:uppercase}
-        .nav-halal{display:flex;align-items:center;gap:4px;background:rgba(46,204,113,0.08);border:1px solid rgba(46,204,113,0.25);border-radius:20px;padding:4px 10px;font-size:9px;color:var(--halal-green);font-weight:700}
+        .nav-halal {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          background-color: rgb(255, 255, 255);
+          color: rgb(255, 107, 0);
+          border: 1px solid rgba(255, 107, 0, 0.2);
+          border-radius: 20px;
+          padding: 4px 10px;
+          font-size: 9px;
+          font-weight: 700;
+          animation: navHalalPulse 2s infinite;
+        }
+        @keyframes navHalalPulse {
+          0%, 100% {
+            box-shadow: 0 0 5px rgba(255, 107, 0, 0.2), 0 0 10px rgba(255, 107, 0, 0.1);
+            border-color: rgba(255, 107, 0, 0.2);
+          }
+          50% {
+            box-shadow: 0 0 10px rgba(255, 107, 0, 0.6), 0 0 20px rgba(255, 107, 0, 0.3);
+            border-color: rgba(255, 107, 0, 0.6);
+          }
+        }
         .nav-halal i{font-size:12px}
         .mobile-menu-btn{display:none;width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:var(--cream);font-size:18px;cursor:pointer;align-items:center;justify-content:center}
         @media(max-width:480px){.mobile-menu-btn{display:flex}}
@@ -300,7 +367,7 @@
         .extra-item:hover{background:rgba(232,133,10,0.06);border-color:rgba(232,133,10,0.2);transform:translateY(-3px)}
         .extra-item-name{font-size:11px;font-weight:600;color:var(--cream);margin-bottom:4px}
         .extra-item-price{font-size:13px;font-weight:700;color:var(--orange-light)}
-        @media(max-width:480px){.hero-parallax-container{height:380px}.section{padding:30px 16px}.special-card{width:260px}.extras-grid,.pap-grid{padding-left:20px}}
+        @media(max-width:480px){.hero-parallax-container{height:240px}.section{padding:30px 16px}.special-card{width:100%}.extras-grid,.pap-grid{padding-left:20px}}
         section[id]{scroll-margin-top:70px}
     </style>
 </head>
@@ -346,19 +413,19 @@
     <nav class="navbar scrolled" id="navbar">
         <div class="nav-container">
             <a href="#home" class="nav-logo"><img src="https://ik.imagekit.io/wemustcreate/CLIENTS%20/Fk-logo.png?updatedAt=1778191341888" alt="Family Kitchen Logo"><div class="nav-logo-text"><span class="brand">Family Kitchen</span><span class="tagline">Best in the West</span></div></a>
-            <div class="nav-halal"><i class="ph ph-certificate"></i> Halal</div>
+            <div class="nav-halal" style="padding: 2px 6px;"><img src="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/02969842e62f1e03b5050ee81f8e172af78b50ca/assets/media/halal.webp" alt="Halal Certified" style="height: 28px; width: auto; display: block;"></div>
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="ph ph-list"></i></button>
         </div>
     </nav>
     <section class="hero" id="home">
         <div class="hero-parallax-container" id="heroContainer" style="transform: translateY(49.2px);">
             <div class="hero-slide">
-                <video autoplay="" muted="" loop="" playsinline="" poster="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/84b3bdc48e29b74776cbb3ada993c3045be7e21c/assets/media/Gatsby.png">
-                    <source src="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/84b3bdc48e29b74776cbb3ada993c3045be7e21c/assets/media/hero%20chips.mp4" type="video/mp4">
+                <video autoplay="" muted="" loop="" playsinline="" poster="https://github.com/searchplaybook-crypto/Family-Kitchen/raw/refs/heads/main/assets/media/grills2go.jpg">
+                    <source src="https://github.com/searchplaybook-crypto/Family-Kitchen/raw/refs/heads/main/assets/media/gatsbuild.mp4" type="video/mp4">
                 </video>
                 <div class="hero-overlay"></div>
             </div>
-            <div class="hero-slide active"><img src="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/84b3bdc48e29b74776cbb3ada993c3045be7e21c/assets/media/Gatsby.png" alt="Gatsby Special" loading="lazy"><div class="hero-overlay"></div></div>
+            <div class="hero-slide active"><img src="https://github.com/searchplaybook-crypto/Family-Kitchen/raw/refs/heads/main/assets/media/grills2go.jpg" alt="Family Kitchen Hero" loading="lazy"><div class="hero-overlay"></div></div>
             <div class="hero-indicators">
                 <button class="hero-dot" onclick="goToHeroSlide(0)"></button>
                 <button class="hero-dot active" onclick="goToHeroSlide(1)"></button>
@@ -380,14 +447,14 @@
     <section class="specials-section" id="specials">
         <div class="section-header"><h2>This Week's <span>Specials</span></h2><p>Chef's handpicked favourites</p><div class="section-divider"></div></div>
         <div class="specials-scroll">
-            <div class="special-card fade-up visible"><img src="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/84b3bdc48e29b74776cbb3ada993c3045be7e21c/assets/media/Gatsby.png" alt="Steak Gatsby" class="special-card-img" loading="lazy"><div class="special-card-body"><span class="special-card-tag">Chef's Choice</span><h3>Full House Gatsby</h3><p>An 80 cm roll stacked edge‑to‑edge overflowing with Viennas, Russians, steak, polony, patties, eggs, chips, and melted cheese</p><div class="special-card-footer"><span class="special-card-price">R250</span><button class="add-btn" onclick="addToOrder('Steak Gatsby', 70)"><i class="ph ph-plus"></i></button></div></div></div>
+            <div class="special-card fade-up visible"><img src="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/84b3bdc48e29b74776cbb3ada993c3045be7e21c/assets/media/Gatsby.png" alt="Steak Gatsby" class="special-card-img" loading="lazy"><div class="special-card-body"><span class="special-card-tag">Chef's Choice</span><h3>Full House Gatsby</h3><p>An 80 cm roll stacked edge‑to‑edge overflowing with Viennas, Russians, steak, polony, patties, eggs, chips, and melted cheese</p><div class="special-card-footer"><span class="special-card-price">R250</span><button class="add-btn" onclick="addToOrder('Full House Gatsby', 250)"><i class="ph ph-plus"></i></button></div></div></div>
             <div class="special-card fade-up visible"><img src="https://github.com/searchplaybook-crypto/Family-Kitchen/raw/refs/heads/main/assets/media/muttonbunny.jpeg" alt="Mutton Bunny" class="special-card-img" loading="lazy"><div class="special-card-body"><span class="special-card-tag">Popular</span><h3>Mutton Bunny</h3><p>half loaf filled with home-cooked mutton curry, soaked into the bread and crowned bold Family Kitchen flavour</p><div class="special-card-footer"><span class="special-card-price">R85</span><button class="add-btn" onclick="addToOrder('Mutton Bunny', 85)"><i class="ph ph-plus"></i></button></div></div></div>
-            <div class="special-card fade-up visible"><img src="https://github.com/searchplaybook-crypto/Family-Kitchen/raw/refs/heads/main/assets/media/zeesspecials.jpg" alt="Family Combo" class="special-card-img" loading="lazy"><div class="special-card-body"><span class="special-card-tag">Best Value</span><h3>Zee Dagwood</h3><p>Layer upon layer of steak, Russians, polony, patties, eggs, chips, and melted cheese pressed into a towering Dagwood.</p><div class="special-card-footer"><span class="special-card-price">R100</span><button class="add-btn" onclick="addToOrder('Family Combo', 150)"><i class="ph ph-plus"></i></button></div></div></div>
+            <div class="special-card fade-up visible"><img src="https://github.com/searchplaybook-crypto/Family-Kitchen/raw/refs/heads/main/assets/media/zeesspecials.jpg" alt="Family Combo" class="special-card-img" loading="lazy"><div class="special-card-body"><span class="special-card-tag">Best Value</span><h3>Zee Dagwood</h3><p>Layer upon layer of steak, Russians, polony, patties, eggs, chips, and melted cheese pressed into a towering Dagwood.</p><div class="special-card-footer"><span class="special-card-price">R100</span><button class="add-btn" onclick="addToOrder('Zee Dagwood', 100)"><i class="ph ph-plus"></i></button></div></div></div>
         </div>
     </section>
     <div class="famzee-highlight fade-up visible">
         <div class="famzee-content">
-            <span class="famzee-badge">🔥 Fan Favourite</span><h3>Famzee Box</h3><p>Steak, Russians, polony, cheese, and chips packed into a share‑ready platter. </p>
+            <span class="famzee-badge">🔥 Fan Favourite</span><h3>Famzee Box</h3><p>🍟 Steak strips + Russian + Vienna + mountain of chips. Feeds 3-4, starts fights, ends hunger. The box that broke the group chat.</p>
             <div class="famzee-items"><span class="famzee-item-tag"> Steak</span><span class="famzee-item-tag">🌭 Russian</span><span class="famzee-item-tag"> Vienna</span><span class="famzee-item-tag"> Polony</span></div>
             <img src="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/84b3bdc48e29b74776cbb3ada993c3045be7e21c/assets/media/famzeebox.png" alt="Famzee Box" style="max-width:100%;border-radius:12px;margin:12px 0;box-shadow:0 4px 20px rgba(0,0,0,0.3)">
             <div class="famzee-price">R130</div>
@@ -395,99 +462,99 @@
     </div>
     <section class="section" id="menu">
         <div class="section-header"><h2>Our <span>Menu</span></h2><p>Explore our full range of traditional favourites</p><div class="section-divider"></div></div>
-        <div class="menu-category fade-up visible"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-cookie"></i></div><div class="menu-cat-info"><h3>Chips</h3><p>Crispy, golden fries made to perfection</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body"><div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chips</div><div class="size-selector"><button class="size-btn active" onclick="selectSize(this, 'S')">S</button><button class="size-btn" onclick="selectSize(this, 'M')">M</button><button class="size-btn" onclick="selectSize(this, 'L')">L</button></div></div><div class="menu-item-right"><span class="menu-item-price" data-s="20" data-m="32" data-l="40">R20</span><button class="menu-item-add" onclick="addToOrder('Chips', 20)"><i class="ph ph-plus"></i></button></div></div></div></div>
+        <div class="menu-category fade-up visible"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-cookie"></i></div><div class="menu-cat-info"><h3>Chips</h3><p>Crispy, golden fries made to perfection</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body"><div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chips</div><div class="menu-item-desc">🍟 Hand-cut fries, fried golden twice for max crunch. Outside: shatter-crispy. Inside: fluffy clouds. Salt hits just right.</div><div class="size-selector"><button class="size-btn active" onclick="selectSize(this, 'S')">S</button><button class="size-btn" onclick="selectSize(this, 'M')">M</button><button class="size-btn" onclick="selectSize(this, 'L')">L</button></div></div><div class="menu-item-right"><span class="menu-item-price" data-s="20" data-m="32" data-l="40">R20</span><button class="menu-item-add" onclick="addToOrder('Chips', 20)"><i class="ph ph-plus"></i></button></div></div></div></div>
         <div class="menu-category fade-up visible"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-package"></i></div><div class="menu-cat-info"><h3>Combo's</h3><p>Satisfying combos with chips</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body">
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Polony &amp; Chips (5pc Garlic)</div></div><div class="menu-item-right"><span class="menu-item-price">R45</span><button class="menu-item-add" onclick="addToOrder('Polony &amp; Chips 5pc Garlic', 45)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Vienna &amp; Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R45</span><button class="menu-item-add" onclick="addToOrder('Vienna &amp; Chips', 45)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Russian &amp; Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R48</span><button class="menu-item-add" onclick="addToOrder('Russian &amp; Chips', 48)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">T Bone &amp; Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R70</span><button class="menu-item-add" onclick="addToOrder('T Bone &amp; Chips', 70)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Fish &amp; Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R55</span><button class="menu-item-add" onclick="addToOrder('Fish &amp; Chips', 55)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">1/4 Chicken &amp; Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R45</span><button class="menu-item-add" onclick="addToOrder('1/4 Chicken &amp; Chips', 45)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">1/2 Chicken &amp; Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R75</span><button class="menu-item-add" onclick="addToOrder('1/2 Chicken &amp; Chips', 75)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Polony &amp; Chips (5pc Garlic)</div><div class="menu-item-desc">🍟 Golden fries + crispy fried polony that snaps. Comfort food that tastes like childhood + payday. Cheap eats, big satisfaction.</div></div><div class="menu-item-right"><span class="menu-item-price">R45</span><button class="menu-item-add" onclick="addToOrder('Polony &amp; Chips 5pc Garlic', 45)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Vienna &amp; Chips</div><div class="menu-item-desc">🌭 Plump vienna, grilled till it pops. Hot chips + tangy sauce = instant happiness. No waiting, no rules, just bite in.</div></div><div class="menu-item-right"><span class="menu-item-price">R45</span><button class="menu-item-add" onclick="addToOrder('Vienna &amp; Chips', 45)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Russian &amp; Chips</div><div class="menu-item-desc">🔥 Snap-skin Russian sausage, char-grilled. Spicy kick + crispy chips = flavor explosion. One bite and you’ll order double next time.</div></div><div class="menu-item-right"><span class="menu-item-price">R48</span><button class="menu-item-add" onclick="addToOrder('Russian &amp; Chips', 48)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">T Bone &amp; Chips</div><div class="menu-item-desc">🍖 T-Bone steak marinated 12hrs + grilled. Crispy skin, juicy meat that pulls off the bone. Price for that? Theft.</div></div><div class="menu-item-right"><span class="menu-item-price">R70</span><button class="menu-item-add" onclick="addToOrder('T Bone &amp; Chips', 70)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Fish &amp; Chips</div><div class="menu-item-desc">🐟 Hake fillet, light batter, zero grease. Flaky white fish + chips that stay crispy. Tastes like the coast, costs like the hood.</div></div><div class="menu-item-right"><span class="menu-item-price">R55</span><button class="menu-item-add" onclick="addToOrder('Fish &amp; Chips', 55)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">1/4 Chicken &amp; Chips</div><div class="menu-item-desc">🐔 Quarter chicken grilled over real flame. Juices run down your chin, chips soak up the flavor. R45 never tasted this good.</div></div><div class="menu-item-right"><span class="menu-item-price">R45</span><button class="menu-item-add" onclick="addToOrder('1/4 Chicken &amp; Chips', 45)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">1/2 Chicken &amp; Chips</div><div class="menu-item-desc">🐔 Half chicken = double the flavor. Char-grilled, smoky, falls off the bone. Share it… if you can.</div></div><div class="menu-item-right"><span class="menu-item-price">R75</span><button class="menu-item-add" onclick="addToOrder('1/2 Chicken &amp; Chips', 75)"><i class="ph ph-plus"></i></button></div></div>
         </div></div>
         <div class="menu-category fade-up visible"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-bread"></i></div><div class="menu-cat-info"><h3>Gatsby</h3><p>Family favourite — loaded sandwich</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body">
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Russians</div><div class="menu-item-desc">Chips, Russians, Polony</div></div><div class="menu-item-right"><span class="menu-item-price">R140</span><button class="menu-item-add" onclick="addToOrder('Gatsby Russians', 140)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Viennas</div><div class="menu-item-desc">Chips, Viennas, Polony</div></div><div class="menu-item-right"><span class="menu-item-price">R140</span><button class="menu-item-add" onclick="addToOrder('Gatsby Viennas', 140)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chicken</div><div class="menu-item-desc">Chips, Chicken Strips, Cheese, Salad</div></div><div class="menu-item-right"><span class="menu-item-price">R160</span><button class="menu-item-add" onclick="addToOrder('Gatsby Chicken', 160)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Family</div><div class="menu-item-desc">Chips, Steak, Viennas, Russians, Polony</div></div><div class="menu-item-right"><span class="menu-item-price">R200</span><button class="menu-item-add" onclick="addToOrder('Gatsby Family', 200)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Full House</div><div class="menu-item-desc">Chips, Steak, Patties, Eggs, Russians, Polony</div></div><div class="menu-item-right"><span class="menu-item-price">R250</span><button class="menu-item-add" onclick="addToOrder('Gatsby Full House', 250)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Russians</div><div class="menu-item-desc">🥪 Soft roll, loaded with chips + 2 snap Russians + sauce. Every bite is chaos + flavor + napkins. Cape Town in your hands.</div></div><div class="menu-item-right"><span class="menu-item-price">R140</span><button class="menu-item-add" onclick="addToOrder('Gatsby Russians', 140)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Viennas</div><div class="menu-item-desc">🥪 Chips + 2 viennas + salad + sauce, pressed till warm. Soft bread, crunchy chips, spicy sauce. Lunch that talks back.</div></div><div class="menu-item-right"><span class="menu-item-price">R140</span><button class="menu-item-add" onclick="addToOrder('Gatsby Viennas', 140)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chicken</div><div class="menu-item-desc">🥪 Flame-grilled chicken + chips + salad. Tender, juicy, zero dryness. Gatsby that actually fills you.</div></div><div class="menu-item-right"><span class="menu-item-price">R160</span><button class="menu-item-add" onclick="addToOrder('Gatsby Chicken', 160)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Family</div><div class="menu-item-desc">🥪 Soft roll with steak, viennas, Russians, polony, chips &amp; sauce. Meat dripping, chips crunching, bread soaking.</div></div><div class="menu-item-right"><span class="menu-item-price">R200</span><button class="menu-item-add" onclick="addToOrder('Gatsby Family', 200)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Full House</div><div class="menu-item-desc">🥪 Everything. We mean EVERYTHING. Russians + Polony + chips + salad + sauce + Steak + Patties + Eggs. Two people struggle. One legend conquers.</div></div><div class="menu-item-right"><span class="menu-item-price">R250</span><button class="menu-item-add" onclick="addToOrder('Gatsby Full House', 250)"><i class="ph ph-plus"></i></button></div></div>
         </div></div>
         <div class="menu-category fade-up visible"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-egg"></i></div><div class="menu-cat-info"><h3>Roll's</h3><p>Fresh rolls stuffed with delicious fillings</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body">
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chip Roll</div></div><div class="menu-item-right"><span class="menu-item-price">R20</span><button class="menu-item-add" onclick="addToOrder('Chip Roll', 20)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Hot Dog</div></div><div class="menu-item-right"><span class="menu-item-price">R23</span><button class="menu-item-add" onclick="addToOrder('Hot Dog', 23)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Wors Roll</div></div><div class="menu-item-right"><span class="menu-item-price">R26</span><button class="menu-item-add" onclick="addToOrder('Wors Roll', 26)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Russian Roll</div></div><div class="menu-item-right"><span class="menu-item-price">R28</span><button class="menu-item-add" onclick="addToOrder('Russian Roll', 28)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chip Roll</div><div class="menu-item-desc">🍟 Hot chips + sauce, rolled fresh. R20 for pure nostalgia. Tastes like school tuck shop, but better.</div></div><div class="menu-item-right"><span class="menu-item-price">R20</span><button class="menu-item-add" onclick="addToOrder('Chip Roll', 20)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Hot Dog</div><div class="menu-item-desc">🌭 Vienna grilled + onions + sauce, soft roll. Classic that never misses. Quick bite, long smile.</div></div><div class="menu-item-right"><span class="menu-item-price">R23</span><button class="menu-item-add" onclick="addToOrder('Hot Dog', 23)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Wors Roll</div><div class="menu-item-desc">🌭 Spicy wors, grilled till it bursts. Juices run, sauce drips, bread soaks. Warning: messy = delicious.</div></div><div class="menu-item-right"><span class="menu-item-price">R26</span><button class="menu-item-add" onclick="addToOrder('Wors Roll', 26)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Russian Roll</div><div class="menu-item-desc">🌭 Snap Russian + onions + sauce. Bite = crackle + drip + “wow”. Street food royalty.</div></div><div class="menu-item-right"><span class="menu-item-price">R28</span><button class="menu-item-add" onclick="addToOrder('Russian Roll', 28)"><i class="ph ph-plus"></i></button></div></div>
         </div></div>
         <div class="menu-category fade-up visible"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-star"></i></div><div class="menu-cat-info"><h3>Specials</h3><p>Chips, cheese &amp; polony roll packed with meaty fillings</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body">
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Polony</div></div><div class="menu-item-right"><span class="menu-item-price">R48</span><button class="menu-item-add" onclick="addToOrder('Special Polony', 48)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Vienna</div></div><div class="menu-item-right"><span class="menu-item-price">R48</span><button class="menu-item-add" onclick="addToOrder('Special Vienna', 48)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Russian</div></div><div class="menu-item-right"><span class="menu-item-price">R50</span><button class="menu-item-add" onclick="addToOrder('Special Russian', 50)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Steak</div></div><div class="menu-item-right"><span class="menu-item-price">R70</span><button class="menu-item-add" onclick="addToOrder('Special Steak', 70)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Polony</div><div class="menu-item-desc">🍟 Chips loaded with cheese + sauce + polony. Cheese pull for days. Upgrade your chips from side to main.</div></div><div class="menu-item-right"><span class="menu-item-price">R48</span><button class="menu-item-add" onclick="addToOrder('Special Polony', 48)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Vienna</div><div class="menu-item-desc">🍟 Chips drowning in cheese + sauce + vienna. Saucy, cheesy, absolutely dangerous. Fork optional, fingers mandatory.</div></div><div class="menu-item-right"><span class="menu-item-price">R48</span><button class="menu-item-add" onclick="addToOrder('Special Vienna', 48)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Russian</div><div class="menu-item-desc">🍟 Chips + melted cheese + spicy Russian. Heat + cheese + crunch in every fork. Addictive level: expert.</div></div><div class="menu-item-right"><span class="menu-item-price">R50</span><button class="menu-item-add" onclick="addToOrder('Special Russian', 50)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Steak</div><div class="menu-item-desc">🍟 Steak strips + cheese + sauce over chips. Protein bomb for hungry people. This is a meal, not a snack.</div></div><div class="menu-item-right"><span class="menu-item-price">R70</span><button class="menu-item-add" onclick="addToOrder('Special Steak', 70)"><i class="ph ph-plus"></i></button></div></div>
         </div></div>
         <div class="menu-category fade-up"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-cookie"></i></div><div class="menu-cat-info"><h3>Toasted Sandwiches</h3><p>Crave-worthy toasted sandwiches</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body">
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chip Bread</div></div><div class="menu-item-right"><span class="menu-item-price">R15</span><button class="menu-item-add" onclick="addToOrder('Chip Bread', 15)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Cheese &amp; Tomato</div></div><div class="menu-item-right"><span class="menu-item-price">R20</span><button class="menu-item-add" onclick="addToOrder('Cheese &amp; Tomato', 20)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Cheese &amp; Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R45</span><button class="menu-item-add" onclick="addToOrder('Cheese &amp; Chips Sandwich', 45)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Steak</div></div><div class="menu-item-right"><span class="menu-item-price">R50</span><button class="menu-item-add" onclick="addToOrder('Steak Sandwich', 50)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Steak &amp; Cheese</div></div><div class="menu-item-right"><span class="menu-item-price">R60</span><button class="menu-item-add" onclick="addToOrder('Steak &amp; Cheese Sandwich', 60)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Steak, Cheese &amp; Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R70</span><button class="menu-item-add" onclick="addToOrder('Steak Cheese Chips Sandwich', 70)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chip Bread</div><div class="menu-item-desc">🥪 Chips + sauce, toasted till edges crunch. R15 time machine to childhood. Crispy outside, soft guilty pleasure inside.</div></div><div class="menu-item-right"><span class="menu-item-price">R15</span><button class="menu-item-add" onclick="addToOrder('Chip Bread', 15)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Cheese &amp; Tomato</div><div class="menu-item-desc">🥪 Cheese melts + tomato sweetens. Simple, clean, golden brown. Toasted perfection.</div></div><div class="menu-item-right"><span class="menu-item-price">R20</span><button class="menu-item-add" onclick="addToOrder('Cheese &amp; Tomato', 20)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Cheese &amp; Chips</div><div class="menu-item-desc">🥪 Chips + cheese, pressed till gooey. Carbs + dairy = instant mood boost. Kids order, adults steal.</div></div><div class="menu-item-right"><span class="menu-item-price">R45</span><button class="menu-item-add" onclick="addToOrder('Cheese &amp; Chips Sandwich', 45)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Steak</div><div class="menu-item-desc">🥪 Steak + sauce, toasted till edges crisp. Savory, meaty, satisfying. No frills, just flavor.</div></div><div class="menu-item-right"><span class="menu-item-price">R50</span><button class="menu-item-add" onclick="addToOrder('Steak Sandwich', 50)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Steak &amp; Cheese</div><div class="menu-item-desc">🥪 Steak + cheese, grilled till it pulls. Rich, meaty, indulgent. Cheese stretch = money shot.</div></div><div class="menu-item-right"><span class="menu-item-price">R60</span><button class="menu-item-add" onclick="addToOrder('Steak &amp; Cheese Sandwich', 60)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Steak, Cheese &amp; Chips</div><div class="menu-item-desc">🥪 Steak + cheese + chips, all toasted together. Triple threat sandwich. Big appetite? Meet your match.</div></div><div class="menu-item-right"><span class="menu-item-price">R70</span><button class="menu-item-add" onclick="addToOrder('Steak Cheese Chips Sandwich', 70)"><i class="ph ph-plus"></i></button></div></div>
         </div></div>
         <div class="menu-category fade-up"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-stack"></i></div><div class="menu-cat-info"><h3>Zee Sandwiches</h3><p>3x sliced toasted chip bread</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body">
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Zee Boy</div><div class="menu-item-desc">4x Polony, Cheese</div></div><div class="menu-item-right"><span class="menu-item-price">R45</span><button class="menu-item-add" onclick="addToOrder('Zee Boy', 45)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Zee Girl</div><div class="menu-item-desc">4x Polony, Patty, Cheese</div></div><div class="menu-item-right"><span class="menu-item-price">R55</span><button class="menu-item-add" onclick="addToOrder('Zee Girl', 55)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Zee Dagwood</div><div class="menu-item-desc">4x Polony, Steak, Patty, Egg, Cheese</div></div><div class="menu-item-right"><span class="menu-item-price">R100</span><button class="menu-item-add" onclick="addToOrder('Zee Dagwood', 100)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Zee Boy</div><div class="menu-item-desc">🥪 Polony + cheese, triple stacked. Big bite, bigger flavor.</div></div><div class="menu-item-right"><span class="menu-item-price">R45</span><button class="menu-item-add" onclick="addToOrder('Zee Boy', 45)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Zee Girl</div><div class="menu-item-desc">🥪 Polony + patty + cheese. Loaded but lighter. Girls’ pick for a reason.</div></div><div class="menu-item-right"><span class="menu-item-price">R55</span><button class="menu-item-add" onclick="addToOrder('Zee Girl', 55)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Zee Dagwood</div><div class="menu-item-desc">🥪 Polony + patty + egg + cheese, towering. Unwrap it, photograph it, then devour it. This is the main character sandwich.</div></div><div class="menu-item-right"><span class="menu-item-price">R100</span><button class="menu-item-add" onclick="addToOrder('Zee Dagwood', 100)"><i class="ph ph-plus"></i></button></div></div>
         </div></div>
         <div class="menu-category fade-up"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-hamburger"></i></div><div class="menu-cat-info"><h3>Burgers</h3><p>Juicy burgers with fresh ingredients</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body">
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Beef Burger</div></div><div class="menu-item-right"><span class="menu-item-price">R32</span><button class="menu-item-add" onclick="addToOrder('Beef Burger', 32)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Beef Cheese Burger</div></div><div class="menu-item-right"><span class="menu-item-price">R39</span><button class="menu-item-add" onclick="addToOrder('Beef Cheese Burger', 39)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Beef Burger &amp; Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R39</span><button class="menu-item-add" onclick="addToOrder('Beef Burger &amp; Chips', 39)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Beef Cheese Burger &amp; Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R46</span><button class="menu-item-add" onclick="addToOrder('Beef Cheese Burger &amp; Chips', 46)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chicken Burger (Fillet)</div></div><div class="menu-item-right"><span class="menu-item-price">R40</span><button class="menu-item-add" onclick="addToOrder('Chicken Burger', 40)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chicken Cheese Burger</div></div><div class="menu-item-right"><span class="menu-item-price">R47</span><button class="menu-item-add" onclick="addToOrder('Chicken Cheese Burger', 47)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chicken Burger &amp; Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R47</span><button class="menu-item-add" onclick="addToOrder('Chicken Burger &amp; Chips', 47)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chicken Cheese Burger &amp; Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R54</span><button class="menu-item-add" onclick="addToOrder('Chicken Cheese Burger &amp; Chips', 54)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Beef Burger</div><div class="menu-item-desc">🍔 Juicy beef patty, grilled + fresh bun. No filler, just flavor. Back to basics, done right.</div></div><div class="menu-item-right"><span class="menu-item-price">R32</span><button class="menu-item-add" onclick="addToOrder('Beef Burger', 32)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Beef Cheese Burger</div><div class="menu-item-desc">🍔 Beef patty + cheese that melts slow. First bite = cheese pull + beef juice. Upgrade worth every rand.</div></div><div class="menu-item-right"><span class="menu-item-price">R39</span><button class="menu-item-add" onclick="addToOrder('Beef Cheese Burger', 39)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Beef Burger &amp; Chips</div><div class="menu-item-desc">🍔 Burger + chips, combo price. Save R3, get full. Smart eaters order this.</div></div><div class="menu-item-right"><span class="menu-item-price">R39</span><button class="menu-item-add" onclick="addToOrder('Beef Burger &amp; Chips', 39)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Beef Cheese Burger &amp; Chips</div><div class="menu-item-desc">🍔 Cheese burger + chips, no compromises. Cheese drip + crispy chips. Combo king of the menu.</div></div><div class="menu-item-right"><span class="menu-item-price">R46</span><button class="menu-item-add" onclick="addToOrder('Beef Cheese Burger &amp; Chips', 46)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chicken Burger (Fillet)</div><div class="menu-item-desc">🍔 Crispy chicken fillet, crunchy coating. Light, not greasy, 100% juicy. Chicken that converts beef lovers.</div></div><div class="menu-item-right"><span class="menu-item-price">R40</span><button class="menu-item-add" onclick="addToOrder('Chicken Burger', 40)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chicken Cheese Burger</div><div class="menu-item-desc">🍔 Crispy chicken + melted cheese. Creamy meets crunchy. Dangerously good.</div></div><div class="menu-item-right"><span class="menu-item-price">R47</span><button class="menu-item-add" onclick="addToOrder('Chicken Cheese Burger', 47)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chicken Burger &amp; Chips</div><div class="menu-item-desc">🍔 Chicken burger + chips. Full meal, fair price. Fast food energy, home taste.</div></div><div class="menu-item-right"><span class="menu-item-price">R47</span><button class="menu-item-add" onclick="addToOrder('Chicken Burger &amp; Chips', 47)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chicken Cheese Burger &amp; Chips</div><div class="menu-item-desc">🍔 Cheese chicken burger + chips. Best seller for a reason. Everything you crave, one plate.</div></div><div class="menu-item-right"><span class="menu-item-price">R54</span><button class="menu-item-add" onclick="addToOrder('Chicken Cheese Burger &amp; Chips', 54)"><i class="ph ph-plus"></i></button></div></div>
         </div></div>
         <div class="menu-category fade-up"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-bowl-food"></i></div><div class="menu-cat-info"><h3>Bunnies</h3><p>Traditional South African curry-filled bread bowls</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body">
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chip</div></div><div class="menu-item-right"><span class="menu-item-price">R20</span><button class="menu-item-add" onclick="addToOrder('Chip Bunny', 20)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Vienna</div></div><div class="menu-item-right"><span class="menu-item-price">R45</span><button class="menu-item-add" onclick="addToOrder('Vienna Bunny', 45)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Russian</div></div><div class="menu-item-right"><span class="menu-item-price">R50</span><button class="menu-item-add" onclick="addToOrder('Russian Bunny', 50)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Patty</div></div><div class="menu-item-right"><span class="menu-item-price">R50</span><button class="menu-item-add" onclick="addToOrder('Patty Bunny', 50)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Mince</div></div><div class="menu-item-right"><span class="menu-item-price">R50</span><button class="menu-item-add" onclick="addToOrder('Mince Bunny', 50)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chicken</div></div><div class="menu-item-right"><span class="menu-item-price">R55</span><button class="menu-item-add" onclick="addToOrder('Chicken Bunny', 55)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Steak</div></div><div class="menu-item-right"><span class="menu-item-price">R65</span><button class="menu-item-add" onclick="addToOrder('Steak Bunny', 65)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Mutton</div></div><div class="menu-item-right"><span class="menu-item-price">R85</span><button class="menu-item-add" onclick="addToOrder('Mutton Bunny', 85)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chip</div><div class="menu-item-desc">🥖 Chips. Soft bread filled with fresh hot chips and savory gravy.</div></div><div class="menu-item-right"><span class="menu-item-price">R20</span><button class="menu-item-add" onclick="addToOrder('Chip Bunny', 20)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Vienna</div><div class="menu-item-desc">🥖 Vienna swimming in spicy curry gravy. Bread soaks it all up. Messy hands = happy heart.</div></div><div class="menu-item-right"><span class="menu-item-price">R45</span><button class="menu-item-add" onclick="addToOrder('Vienna Bunny', 45)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Russian</div><div class="menu-item-desc">🥖 Russian bunny = snap sausage + rich gravy. Authentic, fiery, unforgettable. One bite = East Coast trip.</div></div><div class="menu-item-right"><span class="menu-item-price">R50</span><button class="menu-item-add" onclick="addToOrder('Russian Bunny', 50)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Patty</div><div class="menu-item-desc">🥖 Beef patty + thick curry gravy. Hearty, filling, no nonsense. Bunny for serious eaters.</div></div><div class="menu-item-right"><span class="menu-item-price">R50</span><button class="menu-item-add" onclick="addToOrder('Patty Bunny', 50)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Mince</div><div class="menu-item-desc">🥖 Savoury curried mince + thick gravy inside a soft bread bowl.</div></div><div class="menu-item-right"><span class="menu-item-price">R50</span><button class="menu-item-add" onclick="addToOrder('Mince Bunny', 50)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chicken</div><div class="menu-item-desc">🥖 Chicken pieces + mild curry gravy. Comfort in a bread bowl. Warm, homey, satisfying.</div></div><div class="menu-item-right"><span class="menu-item-price">R55</span><button class="menu-item-add" onclick="addToOrder('Chicken Bunny', 55)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Steak</div><div class="menu-item-desc">🥖 Premium steak + rich gravy. Bunny chow leveled up. For when only the best will do.</div></div><div class="menu-item-right"><span class="menu-item-price">R65</span><button class="menu-item-add" onclick="addToOrder('Steak Bunny', 65)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Mutton</div><div class="menu-item-desc">🥖 Slow-cooked mutton + deep curry. Rich, aromatic, soul food. Tastes like Sunday at gogo’s.</div></div><div class="menu-item-right"><span class="menu-item-price">R85</span><button class="menu-item-add" onclick="addToOrder('Mutton Bunny', 85)"><i class="ph ph-plus"></i></button></div></div>
         </div></div>
         <div class="menu-category fade-up"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-tortilla"></i></div><div class="menu-cat-info"><h3>Roti Wraps</h3><p>Warm, soft rotis wrapped around your favourite fillings</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body">
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Mince</div></div><div class="menu-item-right"><span class="menu-item-price">R55</span><button class="menu-item-add" onclick="addToOrder('Mince Roti Wrap', 55)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chicken</div></div><div class="menu-item-right"><span class="menu-item-price">R55</span><button class="menu-item-add" onclick="addToOrder('Chicken Roti Wrap', 55)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Steak</div></div><div class="menu-item-right"><span class="menu-item-price">R65</span><button class="menu-item-add" onclick="addToOrder('Steak Roti Wrap', 65)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Mince</div><div class="menu-item-desc">🌯 Soft roti wrapped around curried mince. Hand-folded, no leaks, all flavor. Curry you can walk with.</div></div><div class="menu-item-right"><span class="menu-item-price">R55</span><button class="menu-item-add" onclick="addToOrder('Mince Roti Wrap', 55)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chicken</div><div class="menu-item-desc">🌯 Grilled chicken + sauce in warm roti. Light, fast, zero mess. Lunch for busy people.</div></div><div class="menu-item-right"><span class="menu-item-price">R55</span><button class="menu-item-add" onclick="addToOrder('Chicken Roti Wrap', 55)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Steak</div><div class="menu-item-desc">🌯 Steak strips + sauce, roti-wrapped. Protein on the move. Filling without the weight.</div></div><div class="menu-item-right"><span class="menu-item-price">R65</span><button class="menu-item-add" onclick="addToOrder('Steak Roti Wrap', 65)"><i class="ph ph-plus"></i></button></div></div>
         </div></div>
         <div class="menu-category fade-up"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-bowl-food"></i></div><div class="menu-cat-info"><h3>Pap</h3><p>Traditional African pap served with hearty sides</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body"><div class="pap-grid">
-            <div class="pap-item" onclick="addToOrder('1/4 Chicken &amp; Gravy Pap', 45)"><span class="pap-item-name">1/4 Chicken &amp; Gravy</span><span class="pap-item-price">R45</span></div>
-            <div class="pap-item" onclick="addToOrder('Wors &amp; Gravy Pap', 35)"><span class="pap-item-name">Wors &amp; Gravy</span><span class="pap-item-price">R35</span></div>
-            <div class="pap-item" onclick="addToOrder('T.Bone &amp; Gravy Pap', 70)"><span class="pap-item-name">T.Bone &amp; Gravy</span><span class="pap-item-price">R70</span></div>
-            <div class="pap-item" onclick="addToOrder('Chicken Curry Pap', 50)"><span class="pap-item-name">Chicken Curry</span><span class="pap-item-price">R50</span></div>
-            <div class="pap-item" onclick="addToOrder('Beef &amp; Gravy Pap', 50)"><span class="pap-item-name">Beef &amp; Gravy</span><span class="pap-item-price">R50</span></div>
+            <div class="pap-item" onclick="addToOrder('1/4 Chicken &amp; Gravy Pap', 45)"><span class="pap-item-name">1/4 Chicken &amp; Gravy</span><span class="pap-item-desc" style="display:block; font-size:10px; color:var(--text-muted); font-weight:normal; margin-top:2px;">🍚 Soft pap + chicken + gravy that pours. Home-cooked taste, restaurant speed. Spoon it, mop it, love it.</span><span class="pap-item-price">R45</span></div>
+            <div class="pap-item" onclick="addToOrder('Wors &amp; Gravy Pap', 35)"><span class="pap-item-name">Wors &amp; Gravy</span><span class="pap-item-desc" style="display:block; font-size:10px; color:var(--text-muted); font-weight:normal; margin-top:2px;">🍚 Soft pap + grilled wors + rich gravy. Simple, soulful, affordable. South Africa on a plate.</span><span class="pap-item-price">R35</span></div>
+            <div class="pap-item" onclick="addToOrder('T.Bone &amp; Gravy Pap', 70)"><span class="pap-item-name">T.Bone &amp; Gravy</span><span class="pap-item-desc" style="display:block; font-size:10px; color:var(--text-muted); font-weight:normal; margin-top:2px;">🍚 Seared T-Bone + pap + gravy. Heavyweight comfort food.</span><span class="pap-item-price">R70</span></div>
+            <div class="pap-item" onclick="addToOrder('Chicken Curry Pap', 50)"><span class="pap-item-name">Chicken Curry</span><span class="pap-item-desc" style="display:block; font-size:10px; color:var(--text-muted); font-weight:normal; margin-top:2px;">🍚 Chicken curry + pap. Rich sauce, tender meat. Eat with hands, like home.</span><span class="pap-item-price">R50</span></div>
+            <div class="pap-item" onclick="addToOrder('Beef &amp; Gravy Pap', 50)"><span class="pap-item-name">Beef &amp; Gravy</span><span class="pap-item-desc" style="display:block; font-size:10px; color:var(--text-muted); font-weight:normal; margin-top:2px;">🍚 Beef stew + pap. Hearty, warming, real food. Winter weather killer.</span><span class="pap-item-price">R50</span></div>
         </div></div></div>
         <div class="menu-category fade-up"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-users"></i></div><div class="menu-cat-info"><h3>Family Combos</h3><p>Perfect for sharing with family and friends</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body">
-            <div class="family-combo-item"><span class="family-combo-name">Full Chicken &amp; Chips</span><span class="family-combo-price">R150</span><button class="family-combo-btn" onclick="addToOrder('Family Full Chicken &amp; Chips', 150)"><i class="ph ph-plus"></i></button></div>
-            <div class="family-combo-item"><span class="family-combo-name">4 x T.Bone &amp; L Chips</span><span class="family-combo-price">R200</span><button class="family-combo-btn" onclick="addToOrder('Family 4x T.Bone &amp; L Chips', 200)"><i class="ph ph-plus"></i></button></div>
-            <div class="family-combo-item"><span class="family-combo-name">2 x Russians, 3 x Viennas, 10 x Polony, L Chips</span><span class="family-combo-price">R150</span><button class="family-combo-btn" onclick="addToOrder('Family Mixed Combo', 150)"><i class="ph ph-plus"></i></button></div>
-            <div class="family-combo-item"><span class="family-combo-name">6 x Wors &amp; L Chips</span><span class="family-combo-price">R150</span><button class="family-combo-btn" onclick="addToOrder('Family 6x Wors &amp; L Chips', 150)"><i class="ph ph-plus"></i></button></div>
-            <div class="family-combo-item"><span class="family-combo-name">Ribs 400g &amp; L Chips</span><span class="family-combo-price">R150</span><button class="family-combo-btn" onclick="addToOrder('Family Ribs 400g &amp; L Chips', 150)"><i class="ph ph-plus"></i></button></div>
-            <div class="family-combo-item"><span class="family-combo-name">Ribs 400g &amp; L Chips (Premium)</span><span class="family-combo-price">R210</span><button class="family-combo-btn" onclick="addToOrder('Family Ribs Premium', 210)"><i class="ph ph-plus"></i></button></div>
+            <div class="family-combo-item"><span class="family-combo-name">Full Chicken &amp; Chips</span><span class="family-combo-price">R150</span><div class="menu-item-desc" style="margin-left: 76px; font-size: 11px; color: var(--text-muted); margin-bottom: 8px; width: 100%;">🍗 Whole chicken + mountain of chips. Feeds 4, starts memories. Family dinner without the dishes.</div><button class="family-combo-btn" onclick="addToOrder('Family Full Chicken &amp; Chips', 150)"><i class="ph ph-plus"></i></button></div>
+            <div class="family-combo-item"><span class="family-combo-name">4 x T.Bone &amp; L Chips</span><span class="family-combo-price">R200</span><div class="menu-item-desc" style="margin-left: 76px; font-size: 11px; color: var(--text-muted); margin-bottom: 8px; width: 100%;">🍗 4 pieces grilled T-Bone + large chips. More meat, less money. Group hunger = solved.</div><button class="family-combo-btn" onclick="addToOrder('Family 4x T.Bone &amp; L Chips', 200)"><i class="ph ph-plus"></i></button></div>
+            <div class="family-combo-item"><span class="family-combo-name">2 x Russians, 3 x Viennas, 10 x Polony, L Chips</span><span class="family-combo-price">R150</span><div class="menu-item-desc" style="margin-left: 76px; font-size: 11px; color: var(--text-muted); margin-bottom: 8px; width: 100%;">🍟 Mixed meat platter + chips. Taste everything, share everything. Friends who order this stay friends.</div><button class="family-combo-btn" onclick="addToOrder('Family Mixed Combo', 150)"><i class="ph ph-plus"></i></button></div>
+            <div class="family-combo-item"><span class="family-combo-name">6 x Wors &amp; L Chips</span><span class="family-combo-price">R150</span><div class="menu-item-desc" style="margin-left: 76px; font-size: 11px; color: var(--text-muted); margin-bottom: 8px; width: 100%;">🌭 6 wors + large chips. Grilled wors, smoky + juicy. Braai vibes, no fire needed.</div><button class="family-combo-btn" onclick="addToOrder('Family 6x Wors &amp; L Chips', 150)"><i class="ph ph-plus"></i></button></div>
+            <div class="family-combo-item"><span class="family-combo-name">Ribs 400g &amp; L Chips</span><span class="family-combo-price">R150</span><div class="menu-item-desc" style="margin-left: 76px; font-size: 11px; color: var(--text-muted); margin-bottom: 8px; width: 100%;">🍖 400g BBQ ribs + chips. Sticky, saucy, fall-off-bone. Weekend treat unlocked.</div><button class="family-combo-btn" onclick="addToOrder('Family Ribs 400g &amp; L Chips', 150)"><i class="ph ph-plus"></i></button></div>
+            <div class="family-combo-item"><span class="family-combo-name">Ribs 400g &amp; L Chips (Premium)</span><span class="family-combo-price">R210</span><div class="menu-item-desc" style="margin-left: 76px; font-size: 11px; color: var(--text-muted); margin-bottom: 8px; width: 100%;">🍖 400g BBQ ribs + chips (Premium). Sticky, saucy, premium fall-off-bone.</div><button class="family-combo-btn" onclick="addToOrder('Family Ribs Premium', 210)"><i class="ph ph-plus"></i></button></div>
         </div></div>
         <div class="menu-category fade-up"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-fire"></i></div><div class="menu-cat-info"><h3>Grills</h3><p>Grilled to perfection, served with crispy chips</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body">
-            <div class="grill-item"><div class="menu-item-info"><div class="menu-item-name">400g Ribs &amp; M Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R105</span><button class="menu-item-add" onclick="addToOrder('400g Ribs &amp; M Chips', 105)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="grill-item"><div class="menu-item-info"><div class="menu-item-name">600g Ribs &amp; M Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R160</span><button class="menu-item-add" onclick="addToOrder('600g Ribs &amp; M Chips', 160)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="grill-item"><div class="menu-item-info"><div class="menu-item-name">6x Wings &amp; M Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R65</span><button class="menu-item-add" onclick="addToOrder('6x Wings &amp; M Chips', 65)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="grill-item"><div class="menu-item-info"><div class="menu-item-name">8x Wings &amp; L Chips</div></div><div class="menu-item-right"><span class="menu-item-price">R85</span><button class="menu-item-add" onclick="addToOrder('8x Wings &amp; L Chips', 85)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="grill-item"><div class="menu-item-info"><div class="menu-item-name">400g Ribs &amp; M Chips</div><div class="menu-item-desc">🍖 Half rack ribs, glazed + grilled. Sticky sauce + tender meat. BBQ fix without the braai.</div></div><div class="menu-item-right"><span class="menu-item-price">R105</span><button class="menu-item-add" onclick="addToOrder('400g Ribs &amp; M Chips', 105)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="grill-item"><div class="menu-item-info"><div class="menu-item-name">600g Ribs &amp; M Chips</div><div class="menu-item-desc">🍖 Full rack ribs + large chips. Ribs for kings, chips for queens. Big plate, bigger appetite.</div></div><div class="menu-item-right"><span class="menu-item-price">R160</span><button class="menu-item-add" onclick="addToOrder('600g Ribs &amp; M Chips', 160)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="grill-item"><div class="menu-item-info"><div class="menu-item-name">6x Wings &amp; M Chips</div><div class="menu-item-desc">🍗 6 wings + chips. Snack size, full flavor. Quick craving fix.</div></div><div class="menu-item-right"><span class="menu-item-price">R65</span><button class="menu-item-add" onclick="addToOrder('6x Wings &amp; M Chips', 65)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="grill-item"><div class="menu-item-info"><div class="menu-item-name">8x Wings &amp; L Chips</div><div class="menu-item-desc">🍗 8 wings + large chips. Finger-licking guaranteed. Game night essential.</div></div><div class="menu-item-right"><span class="menu-item-price">R85</span><button class="menu-item-add" onclick="addToOrder('8x Wings &amp; L Chips', 85)"><i class="ph ph-plus"></i></button></div></div>
         </div></div>
         <div class="menu-category fade-up"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-bowl-food"></i></div><div class="menu-cat-info"><h3>Curry &amp; Rice</h3><p>Delicious curry served over a bed of fluffy rice</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body">
-            <div class="curry-item"><div class="menu-item-info"><div class="menu-item-name">Mince</div></div><div class="menu-item-right"><span class="menu-item-price">R50</span><button class="menu-item-add" onclick="addToOrder('Mince Curry &amp; Rice', 50)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="curry-item"><div class="menu-item-info"><div class="menu-item-name">Chicken</div></div><div class="menu-item-right"><span class="menu-item-price">R55</span><button class="menu-item-add" onclick="addToOrder('Chicken Curry &amp; Rice', 55)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="curry-item"><div class="menu-item-info"><div class="menu-item-name">Beef</div></div><div class="menu-item-right"><span class="menu-item-price">R65</span><button class="menu-item-add" onclick="addToOrder('Beef Curry &amp; Rice', 65)"><i class="ph ph-plus"></i></button></div></div>
-            <div class="curry-item"><div class="menu-item-info"><div class="menu-item-name">Mutton</div></div><div class="menu-item-right"><span class="menu-item-price">R85</span><button class="menu-item-add" onclick="addToOrder('Mutton Curry &amp; Rice', 85)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="curry-item"><div class="menu-item-info"><div class="menu-item-name">Mince</div><div class="menu-item-desc">🍛 Curried mince + fluffy basmati. Comfort food, light + tasty. Easy dinner, zero stress.</div></div><div class="menu-item-right"><span class="menu-item-price">R50</span><button class="menu-item-add" onclick="addToOrder('Mince Curry &amp; Rice', 50)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="curry-item"><div class="menu-item-info"><div class="menu-item-name">Chicken</div><div class="menu-item-desc">🍛 Chicken curry + rice. Tender pieces + rich gravy. Everyday meal, extraordinary taste.</div></div><div class="menu-item-right"><span class="menu-item-price">R55</span><button class="menu-item-add" onclick="addToOrder('Chicken Curry &amp; Rice', 55)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="curry-item"><div class="menu-item-info"><div class="menu-item-name">Beef</div><div class="menu-item-desc">🍛 Beef curry + rice. Hearty chunks + deep spice. Warm you up from inside.</div></div><div class="menu-item-right"><span class="menu-item-price">R65</span><button class="menu-item-add" onclick="addToOrder('Beef Curry &amp; Rice', 65)"><i class="ph ph-plus"></i></button></div></div>
+            <div class="curry-item"><div class="menu-item-info"><div class="menu-item-name">Mutton</div><div class="menu-item-desc">🍛 Slow-cooked mutton + rice. Rich aroma, tender meat. Premium curry for curry lovers.</div></div><div class="menu-item-right"><span class="menu-item-price">R85</span><button class="menu-item-add" onclick="addToOrder('Mutton Curry &amp; Rice', 85)"><i class="ph ph-plus"></i></button></div></div>
         </div></div>
         <div class="menu-category fade-up"><div class="menu-category-header" onclick="toggleCategory(this)"><div class="menu-category-header-left"><div class="menu-cat-icon"><i class="ph ph-plus"></i></div><div class="menu-cat-info"><h3>Extras</h3><p>Add-ons and sides to complete your meal</p></div></div><div class="menu-cat-arrow"><i class="ph ph-caret-down"></i></div></div><div class="menu-category-body"><div class="extras-grid">
             <div class="extra-item" onclick="addToOrder('Polony Extra', 3)"><div class="extra-item-name">Polony</div><div class="extra-item-price">R3</div></div>
@@ -565,7 +632,7 @@
         let orderItems=[];
         function addToOrder(name,price){const existingItem=orderItems.find(item=>item.name===name);if(existingItem){existingItem.qty+=1}else{orderItems.push({name,price,qty:1})}updateOrderCount();showToast(`${name} added! — R${price}`)}
         function updateOrderCount(){const totalQty=orderItems.reduce((sum,item)=>sum+item.qty,0);document.getElementById('orderCount').textContent=totalQty}
-        function checkoutViaWhatsApp(){if(orderItems.length===0){showToast('Your cart is empty! Add items first.');return}let message="Hi Family Kitchen! 🍽️ New Order:\n";message+="--------------------------\n";let total=0;orderItems.forEach((item)=>{const lineTotal=item.price*item.qty;message+=`${item.qty}x ${item.name} - R${lineTotal}\n`;total+=lineTotal});message+="--------------------------\n";message+=`Total: R${total}\n\n`;message+="Please confirm availability & delivery time. Thank you!";const encodedMessage=encodeURIComponent(message);window.open(`https://wa.me/27605896049?text=${encodedMessage}`,'_blank')}
+        function checkoutViaWhatsApp(){if(orderItems.length===0){showToast('Your cart is empty! Add items first.');return}let message="Hi Family Kitchen! 🍽️ New Order:\n";message+="--------------------------\n";let total=0;orderItems.forEach((item)=>{const lineTotal=item.price*item.qty;message+=`${item.qty}x ${item.name} - R${lineTotal}\n`;total+=lineTotal});message+="--------------------------\n";message+=`Total: R${total}\n\n`;message+="Please confirm availability & delivery time. Thank you!";const encodedMessage=encodeURIComponent(message);window.open(`https://wa.me/27605896049?text=${encodedMessage}`,'_blank');triggerOrderProcessed(15)}
         function showToast(message){const toast=document.getElementById('toast');document.getElementById('toastText').textContent=message;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2500)}
         function toggleCategory(header){header.parentElement.classList.toggle('open')}
         function selectSize(btn,size){btn.parentElement.querySelectorAll('.size-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const priceEl=btn.closest('.menu-item').querySelector('.menu-item-price');const price=priceEl.dataset[size.toLowerCase()];priceEl.textContent=`R${price}`;btn.closest('.menu-item').querySelector('.menu-item-add').setAttribute('onclick',`addToOrder('Chips ${size}', ${price})`)}
@@ -573,6 +640,114 @@
         const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible')})},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
         document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
         window.addEventListener('scroll',()=>{const scrollY=window.scrollY;const heroContainer=document.getElementById('heroContainer');if(heroContainer&&scrollY<500){heroContainer.style.transform=`translateY(${scrollY*0.3}px)`}},{passive:true});
+
+        // --- Configuration & State Tracking ---
+        const COUNTDOWN_KEY = "fk_order_countdown_end";
+
+        // --- Fix 1: Animated Countdown Logic with Persistence ---
+        function initCountdown() {
+            const pill = document.querySelector('.wait-pill');
+            if (!pill) return;
+            let endTime = localStorage.getItem(COUNTDOWN_KEY);
+            if (endTime) {
+                runTimer(parseInt(endTime, 10), pill);
+            } else {
+                pill.textContent = "15min wait time";
+                pill.style.background = "linear-gradient(135deg, var(--halal-green), #27ae60)";
+                pill.classList.remove('countdown-active');
+            }
+        }
+
+        function triggerOrderProcessed(durationMinutes = 15) {
+            const pill = document.querySelector('.wait-pill');
+            if (!pill) return;
+            pill.classList.add('pop-out-zoom');
+            setTimeout(() => {
+                pill.classList.remove('pop-out-zoom');
+            }, 600);
+            const endTimestamp = Date.now() + (durationMinutes * 60 * 1000);
+            localStorage.setItem(COUNTDOWN_KEY, endTimestamp);
+            runTimer(endTimestamp, pill);
+        }
+
+        function runTimer(endTime, element) {
+            element.classList.add('countdown-active');
+            element.style.background = "linear-gradient(135deg, #e74c3c, #c0392b)";
+            if (window.countdownInterval) {
+                clearInterval(window.countdownInterval);
+            }
+            window.countdownInterval = setInterval(() => {
+                const remaining = endTime - Date.now();
+                if (remaining <= 0) {
+                    clearInterval(window.countdownInterval);
+                    localStorage.removeItem(COUNTDOWN_KEY);
+                    element.textContent = "Order Ready for Pickup!";
+                    element.style.background = "linear-gradient(135deg, var(--halal-green), #27ae60)";
+                    element.style.animation = "pulse 1s infinite alternate";
+                    element.classList.remove('countdown-active');
+                    element.classList.add('pop-out-zoom');
+                    setTimeout(() => {
+                        element.classList.remove('pop-out-zoom');
+                    }, 600);
+                    return;
+                }
+                const totalSeconds = Math.floor(remaining / 1000);
+                const mins = Math.floor(totalSeconds / 60);
+                const secs = totalSeconds % 60;
+                element.textContent = `Prep Time: ${mins}:${secs < 10 ? '0' : ''}${secs}`;
+            }, 1000);
+        }
+
+        // --- Fix 2: Secret Menu - Logo Multi-Tap Unlock ---
+        let logoTapCount = 0;
+        let logoTapTimer = null;
+        function initSecretMenu() {
+            const logoLink = document.querySelector('.nav-logo');
+            if (!logoLink) return;
+            logoLink.addEventListener('click', (e) => {
+                logoTapCount++;
+                clearTimeout(logoTapTimer);
+                if (logoTapCount > 1) {
+                    e.preventDefault();
+                }
+                logoTapTimer = setTimeout(() => {
+                    logoTapCount = 0;
+                }, 1500);
+                if (logoTapCount === 5) {
+                    logoTapCount = 0;
+                    e.preventDefault();
+                    injectSecretItem();
+                }
+            });
+        }
+
+        function injectSecretItem() {
+            if (document.getElementById('secret-chopped-cheese')) return;
+            const specialsGrid = document.querySelector('.specials-scroll');
+            if (!specialsGrid) return;
+            const card = document.createElement('div');
+            card.id = 'secret-chopped-cheese';
+            card.className = 'famzee-highlight fade-up visible secret-unlock-anim';
+            card.style.border = '2px dashed var(--orange-glow)';
+            card.style.background = 'linear-gradient(145deg, #2a1010, var(--wood-dark))';
+            card.style.marginTop = '20px';
+            card.innerHTML = `
+                <div class="famzee-content">
+                    <span class="famzee-badge" style="background:var(--orange-primary); color:var(--wood-dark)">🔒 UNLOCKED: SECRET MENU</span>
+                    <h3>NYC Style Chopped Cheese</h3>
+                    <p>Ground beef chopped on the grill with onions, melted cheddar cheese, shredded lettuce, and tomatoes on a toasted hero roll.</p>
+                    <img src="https://github.com/searchplaybook-crypto/Family-Kitchen/raw/refs/heads/main/assets/media/chop1.jpeg" alt="NYC Chopped Cheese" style="max-width:100%;border-radius:12px;margin:12px 0;box-shadow:0 4px 20px rgba(0,0,0,0.3)">
+                    <div class="famzee-price">R95</div>
+                    <button class="add-btn" style="margin: 12px auto 0;" onclick="addToOrder('NYC Chopped Cheese', 95)"><i class="ph ph-plus"></i></button>
+                </div>
+            `;
+            specialsGrid.parentNode.insertBefore(card, specialsGrid.nextSibling);
+            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            showToast("🔓 Secret Menu Unlocked!");
+        }
+
+        initCountdown();
+        initSecretMenu();
     </script>
 
 
