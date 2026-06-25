@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,29 +46,34 @@
             bottom: 100px;
             right: 24px;
             top: auto;
-            background: linear-gradient(135deg, var(--halal-green), #27ae60);
-            color: white;
+            background: rgba(46, 204, 113, 0.15);
+            backdrop-filter: blur(16px) saturate(1.4);
+            -webkit-backdrop-filter: blur(16px) saturate(1.4);
+            color: var(--cream-light);
             padding: 10px 20px;
             border-radius: 50px;
             font-weight: 700;
             z-index: 9999;
-            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.4);
+            box-shadow: 0 4px 20px rgba(46, 204, 113, 0.15), inset 0 0 0 1.5px rgba(46, 204, 113, 0.5);
             font-size: 0.95rem;
             display: flex;
             align-items: center;
             gap: 8px;
             animation: pulse 2s infinite;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(46, 204, 113, 0.3);
         }
         .wait-pill.countdown-active {
             font-size: 1.05rem;
             padding: 12px 24px;
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4), inset 0 0 0 1.5px rgba(231, 76, 60, 0.6);
+            background: rgba(231, 76, 60, 0.15);
+            border-color: rgba(231, 76, 60, 0.4);
         }
         .wait-pill.pop-out-zoom {
             animation: popOutZoom 0.6s ease-in-out forwards;
         }
-        .wait-pill::before { content: '⏱️'; font-size: 1.1rem; }
+        .wait-pill::before { content: '⏱️'; font-size: 1.1rem; filter: drop-shadow(0 0 4px rgba(46,204,113,0.6)); }
         @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.05)} }
         @keyframes popOutZoom {
             0% { transform: scale(1); }
@@ -87,6 +93,425 @@
             }
         }
 
+        
+        /* =============================================
+           INTRO SEQUENCE CSS
+           ============================================= */
+
+        /* PHASE 0a — TYPEWRITER INTRO */
+        #phase-text {
+            position: fixed;
+            inset: 0;
+            z-index: 10001;
+            background: var(--wood-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        #phase-text.out {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        #typewriter-container {
+            text-align: center;
+            color: #fff;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        #typewriter-container.fade-out {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        .tw-line {
+            margin-bottom: 8px;
+            min-height: 1.2em;
+        }
+        .tw-line:last-child {
+            margin-bottom: 0;
+        }
+        .tw-char {
+            display: inline-block;
+            font-family: 'Cookie', cursive;
+            font-weight: 400;
+            font-size: clamp(48px, 12vw, 80px);
+            color: var(--cream);
+            opacity: 0;
+            transform: scale(0.8) translateY(10px);
+            transition: opacity 0.15s ease-out, transform 0.15s ease-out;
+            text-shadow: 0 0 10px rgba(232, 133, 10, 0.3);
+        }
+        .tw-char.visible {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+        .tw-line.pop .tw-char {
+            animation: popChar 0.4s ease forwards;
+        }
+        @keyframes popChar {
+            0% {
+                transform: scale(1);
+                color: var(--cream);
+                text-shadow: 0 0 10px rgba(232, 133, 10, 0.3);
+            }
+            50% {
+                transform: scale(1.15);
+                color: var(--orange-light);
+                text-shadow: 0 0 30px var(--orange-primary), 0 0 60px rgba(232, 133, 10, 0.5);
+            }
+            100% {
+                transform: scale(1);
+                color: var(--orange-light);
+                text-shadow: 0 0 20px rgba(232, 133, 10, 0.5), 0 0 40px rgba(232, 133, 10, 0.3);
+            }
+        }
+        .tw-line.final-line .tw-char {
+            font-size: clamp(72px, 18vw, 120px);
+            color: var(--cream-light);
+        }
+        .tw-line.final-line.pop .tw-char {
+            animation: popCharFinal 0.6s ease forwards;
+        }
+        @keyframes popCharFinal {
+            0% {
+                transform: scale(1);
+                color: var(--cream-light);
+                text-shadow: 0 0 10px rgba(232, 133, 10, 0.3);
+            }
+            50% {
+                transform: scale(1.2);
+                color: var(--orange-glow);
+                text-shadow: 0 0 40px var(--orange-primary), 0 0 80px rgba(232, 133, 10, 0.6);
+            }
+            100% {
+                transform: scale(1);
+                color: var(--orange-light);
+                text-shadow: 0 0 30px rgba(232, 133, 10, 0.6), 0 0 60px rgba(232, 133, 10, 0.4);
+            }
+        }
+
+        /* PHASE 0b — VIDEO INTRO */
+
+        /* === SEAMLESS INTRO-TO-HERO TRANSITION === */
+        #phase-video {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            background: var(--wood-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #phase-video.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        #phase-video.out {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1.5s ease-in-out;
+        }
+        .video-wrap {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .video-wrap video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            border: none;
+            opacity: 1;
+            pointer-events: none;
+            object-fit: cover;
+        }
+
+        .video-fade-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: var(--wood-dark);
+            opacity: 1;
+            pointer-events: none;
+            animation: fadeOutOverlay 12s ease forwards;
+        }
+        @keyframes fadeOutOverlay {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        .video-logo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding-bottom: clamp(32px, 8vh, 64px);
+            pointer-events: none;
+        }
+        .overlay-logo {
+            width: clamp(150px, 30vw, 315px);
+            height: auto;
+            filter: drop-shadow(0 0 20px rgba(232, 133, 10, 0.4))
+                    drop-shadow(0 0 40px rgba(232, 133, 10, 0.2));
+            animation: logoFloat 4s ease-in-out infinite, logoGlow 3s ease-in-out infinite alternate;
+        }
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+        @keyframes logoGlow {
+            0% { filter: drop-shadow(0 0 20px rgba(232, 133, 10, 0.4)) drop-shadow(0 0 40px rgba(232, 133, 10, 0.2)); }
+            100% { filter: drop-shadow(0 0 30px rgba(232, 133, 10, 0.6)) drop-shadow(0 0 60px rgba(232, 133, 10, 0.3)); }
+        }
+        .overlay-footer {
+            margin-top: 16px;
+            font-family: 'Poppins', serif;
+            font-size: clamp(14px, 2.2vw, 24px);
+            letter-spacing: 3px;
+            color: rgba(245, 230, 200, 0.6);
+            text-transform: uppercase;
+            text-align: center;
+            padding: 0 16px;
+            font-weight: 400;
+            border-top: 1px solid rgba(245, 230, 200, 0.08);
+            padding-top: 12px;
+            opacity: 0.8;
+        }
+        .video-progress-wrap {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 2;
+            padding: 0 20px 10px;
+            pointer-events: none;
+        }
+        .video-progress-track {
+            width: 100%;
+            height: 2px;
+            background: rgba(232, 133, 10, 0.15);
+            border-radius: 99px;
+            overflow: hidden;
+        }
+        .video-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--orange-dark), var(--orange-primary), var(--orange-light));
+            border-radius: 99px;
+            transition: width 0.1s linear;
+        }
+
+        
+        /* === HERO REEL === */
+        .hero-reel-container {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            padding-top: 75%; /* 4:3 cropped reel */
+            overflow: hidden;
+            border-radius: 0 0 24px 24px;
+        }
+        .reel-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .reel-wrapper iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            pointer-events: none;
+        }
+        .reel-fade-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(to bottom, transparent 0%, var(--wood-dark) 85%, var(--wood-dark) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+        @media(min-width: 768px) {
+            .hero-reel-container {
+                padding-top: 56.25%;
+                max-width: 100%;
+                border-radius: 0 0 32px 32px;
+            }
+        }
+        
+        /* === ENHANCED FLOATING WHATSAPP BUTTON === */
+        .floating-order-btn {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4), 0 0 0 4px rgba(37, 211, 102, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: waFloatBounce 3s ease-in-out infinite, waGlowPulse 2s ease-in-out infinite alternate;
+            position: relative;
+            overflow: hidden;
+        }
+        .floating-order-btn:hover {
+            transform: scale(1.12) rotate(-5deg);
+            box-shadow: 0 8px 35px rgba(37, 211, 102, 0.6), 0 0 0 6px rgba(37, 211, 102, 0.15);
+        }
+        .floating-order-btn:active { transform: scale(0.95); }
+        .floating-order-btn .wa-icon-main,
+        .floating-order-btn .wa-icon-alt {
+            position: absolute;
+            transition: all 0.4s ease;
+        }
+        .floating-order-btn .wa-icon-main { opacity: 1; transform: scale(1); }
+        .floating-order-btn .wa-icon-alt { opacity: 0; transform: scale(0.5) rotate(-20deg); }
+        .floating-order-btn:hover .wa-icon-main { opacity: 0; transform: scale(0.5) rotate(20deg); }
+        .floating-order-btn:hover .wa-icon-alt { opacity: 1; transform: scale(1) rotate(0deg); }
+        .order-badge {
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            width: 22px;
+            height: 22px;
+            background: var(--orange-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--wood-dark);
+            border: 2px solid var(--wood-dark);
+            animation: badgePop 0.3s ease;
+        }
+        @keyframes waFloatBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+        @keyframes waGlowPulse {
+            0% { box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4), 0 0 0 4px rgba(37, 211, 102, 0.1); }
+            100% { box-shadow: 0 8px 35px rgba(37, 211, 102, 0.6), 0 0 0 8px rgba(37, 211, 102, 0.05); }
+        }
+        @keyframes badgePop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+
+        /* === FLOATING CALL BUTTON (intermittent) === */
+        .floating-call {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 998;
+            opacity: 0;
+            transform: translateY(20px) scale(0.8);
+            pointer-events: none;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .floating-call.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: all;
+        }
+        .floating-call-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--orange-primary), var(--orange-glow));
+            border: none;
+            color: var(--wood-dark);
+            font-size: 22px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(232, 133, 10, 0.4), 0 0 0 3px rgba(232, 133, 10, 0.1);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: callRingPulse 1.5s ease-in-out infinite;
+        }
+        .floating-call-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(232, 133, 10, 0.6);
+        }
+        .call-icon-ring { display: inline-block; animation: phoneRing 2s ease-in-out infinite; }
+        @keyframes callRingPulse {
+            0%, 100% { box-shadow: 0 4px 20px rgba(232, 133, 10, 0.4), 0 0 0 3px rgba(232, 133, 10, 0.1); }
+            50% { box-shadow: 0 6px 25px rgba(232, 133, 10, 0.6), 0 0 0 6px rgba(232, 133, 10, 0.05); }
+        }
+        @media(max-width:768px) {
+            .floating-order-btn { width: 56px; height: 56px; font-size: 24px; }
+            .floating-call-btn { width: 48px; height: 48px; font-size: 20px; }
+            .floating-order { bottom: 20px; right: 20px; }
+            .floating-call { bottom: 20px; right: 20px; }
+        }
+        
+        /* === SCROLL DOWN HINT === */
+        .scroll-hint {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 16px 20px 8px;
+            margin: 0 auto;
+            max-width: 480px;
+            animation: scrollHintFade 2s ease-in-out infinite;
+            opacity: 0.7;
+            transition: opacity 0.5s ease;
+        }
+        .scroll-hint.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .scroll-hint-line {
+            width: 1px;
+            height: 32px;
+            background: linear-gradient(to bottom, var(--orange-primary), transparent);
+            border-radius: 1px;
+        }
+        .scroll-hint-text {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+        .scroll-hint-arrow {
+            font-size: 16px;
+            color: var(--orange-light);
+            animation: scrollBounce 1.5s ease-in-out infinite;
+        }
+        @keyframes scrollHintFade {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.9; }
+        }
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(6px); }
+        }
         .secret-unlock-anim {
             animation: secretReveal 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
         }
@@ -133,10 +558,10 @@
         .navbar.scrolled{background:rgba(26,18,8,0.96);border-bottom-color:rgba(232,133,10,0.2);box-shadow:0 4px 20px rgba(0,0,0,0.3)}
         .nav-container{max-width:480px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between}
         .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-        .nav-logo img{width:40px;height:40px;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(232,133,10,0.3))}
+        .nav-logo img{width:48px;height:48px;object-fit:contain;filter:drop-shadow(0 2px 10px rgba(232,133,10,0.35))}
         .nav-logo-text{display:flex;flex-direction:column;line-height:1.1}
-        .nav-logo-text .brand{font-family:'Cookie',cursive;font-size:18px;color:var(--orange-light)}
-        .nav-logo-text .tagline{font-size:8px;color:var(--text-muted);font-weight:500;letter-spacing:1.5px;text-transform:uppercase}
+        .nav-logo-text .brand{font-family:'Cookie',cursive;font-size:22px;color:var(--orange-light)}
+        .nav-logo-text .tagline{font-size:10px;color:var(--text-muted);font-weight:500;letter-spacing:1.5px;text-transform:uppercase}
         .nav-halal {
           display: flex;
           align-items: center;
@@ -172,7 +597,7 @@
         .hero-indicators{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10}
         .hero-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.3);border:none;cursor:pointer;transition:all 0.4s;padding:0}
         .hero-dot.active{background:var(--orange-light);width:28px;border-radius:4px;box-shadow:0 0 12px rgba(232,133,10,0.6)}
-        .glow-cta{display:flex;flex-direction:column;align-items:center;gap:16px;padding:44px 24px 20px;position:relative}
+        .glow-cta{display:flex;flex-direction:column;align-items:center;gap:16px;padding:24px 24px 20px;position:relative;margin-top:-40px;z-index:3}
         .cta-group{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
         .glow-cta-btn{position:relative;display:inline-flex;align-items:center;gap:10px;padding:18px 48px;background:linear-gradient(135deg,var(--orange-primary),var(--orange-glow));color:var(--wood-dark);font-family:'Poppins',sans-serif;font-size:17px;font-weight:700;border:none;border-radius:50px;cursor:pointer;text-decoration:none;transition:all 0.4s;z-index:1;overflow:hidden;box-shadow:0 4px 15px rgba(232,133,10,0.3)}
         .glow-cta-btn::before{content:'';position:absolute;inset:-3px;background:conic-gradient(from 0deg,var(--orange-primary),var(--orange-light),var(--orange-glow),#ffb347,var(--orange-primary));border-radius:53px;z-index:-2;animation:glowRotate 4s linear infinite}
@@ -372,10 +797,46 @@
     </style>
 </head>
 <body>
+    <!-- ===== INTRO SEQUENCE ===== -->
+    <div id="phase-text">
+        <div id="typewriter-container"></div>
+    </div>
+
+    <div id="phase-video">
+        <div class="video-wrap">
+            <video
+                id="intro-video-player"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+                style="width:100%;height:100%;object-fit:cover;"
+            >
+                <source src="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/c43153d78ce8770827092571b0a05eb14db8e484/assets/media/hero.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-fade-overlay"></div>
+        <div class="video-logo-overlay">
+            <img
+                class="overlay-logo"
+                src="https://ik.imagekit.io/wemustcreate/CLIENTS%20/Fk-logo.png?updatedAt=1778191341888"
+                alt="Family Kitchen"
+            />
+            <div class="overlay-footer">Est. March 2019 · 69 Price St, Newclare</div>
+        </div>
+        <div class="video-progress-wrap">
+            <div class="video-progress-track">
+                <div class="video-progress-fill" id="video-progress"></div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- ADDED: Floating Wait Time Pill -->
     <div class="wait-pill">15min wait time</div>
 
-    <div class="loading-screen hidden" id="loadingScreen">
+    <div class="loading-screen hidden" id="loadingScreen" style="display:none !important;">
         <img src="https://ik.imagekit.io/wemustcreate/CLIENTS%20/Fk-logo.png?updatedAt=1778191341888" alt="Family Kitchen Logo" class="loading-logo">
         <div class="loading-text"><h2>Family Kitchen</h2><p>Preparing your menu</p></div>
         <div class="loading-scooter">
@@ -413,23 +874,32 @@
     <nav class="navbar scrolled" id="navbar">
         <div class="nav-container">
             <a href="#home" class="nav-logo"><img src="https://ik.imagekit.io/wemustcreate/CLIENTS%20/Fk-logo.png?updatedAt=1778191341888" alt="Family Kitchen Logo"><div class="nav-logo-text"><span class="brand">Family Kitchen</span><span class="tagline">Best in the West</span></div></a>
-            <div class="nav-halal" style="padding: 2px 6px;"><img src="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/02969842e62f1e03b5050ee81f8e172af78b50ca/assets/media/halal.webp" alt="Halal Certified" style="height: 28px; width: auto; display: block;"></div>
+            <div class="nav-halal" style="padding: 3px 8px;"><img src="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/02969842e62f1e03b5050ee81f8e172af78b50ca/assets/media/halal.webp" alt="Halal Certified" style="height: 34px; width: auto; display: block;"></div>
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="ph ph-list"></i></button>
         </div>
     </nav>
     <section class="hero" id="home">
-        <div class="hero-parallax-container" id="heroContainer" style="transform: translateY(49.2px);">
-            <div class="hero-slide">
-                <video autoplay="" muted="" loop="" playsinline="" poster="https://github.com/searchplaybook-crypto/Family-Kitchen/raw/refs/heads/main/assets/media/grills2go.jpg">
-                    <source src="https://github.com/searchplaybook-crypto/Family-Kitchen/raw/refs/heads/main/assets/media/gatsbuild.mp4" type="video/mp4">
+        <div class="hero-reel-container" id="heroContainer">
+            <div class="reel-wrapper">
+                <!-- 
+                    INSTRUCTION: Upload your cropped 4:3 reel MP4 to your GitHub repo:
+                    Path: assets/media/reel.mp4
+                    Then replace the src below with your raw GitHub URL:
+                    https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/c43153d78ce8770827092571b0a05eb14db8e484/assets/media/hero.mp4
+                -->
+                <video 
+                    id="heroVideo"
+                    autoplay 
+                    muted 
+                    loop 
+                    playsinline
+                    preload="auto"
+                    style="width:100%;height:100%;object-fit:cover;"
+                >
+                    <source src="https://raw.githubusercontent.com/searchplaybook-crypto/Family-Kitchen/c43153d78ce8770827092571b0a05eb14db8e484/assets/media/hero.mp4" type="video/mp4">
                 </video>
-                <div class="hero-overlay"></div>
             </div>
-            <div class="hero-slide active"><img src="https://github.com/searchplaybook-crypto/Family-Kitchen/raw/refs/heads/main/assets/media/grills2go.jpg" alt="Family Kitchen Hero" loading="lazy"><div class="hero-overlay"></div></div>
-            <div class="hero-indicators">
-                <button class="hero-dot" onclick="goToHeroSlide(0)"></button>
-                <button class="hero-dot active" onclick="goToHeroSlide(1)"></button>
-            </div>
+            <div class="reel-fade-bottom"></div>
         </div>
     </section>
     <div class="glow-cta">
@@ -443,6 +913,15 @@
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
             Search Playbook
         </a>
+    </div>
+    
+    <!-- SCROLL DOWN HINT -->
+    <div class="scroll-hint" id="scrollHint">
+        <div class="scroll-hint-line"></div>
+        <span class="scroll-hint-text">Scroll for menu</span>
+        <div class="scroll-hint-arrow">
+            <i class="ph ph-caret-down"></i>
+        </div>
     </div>
     <section class="specials-section" id="specials">
         <div class="section-header"><h2>This Week's <span>Specials</span></h2><p>Chef's handpicked favourites</p><div class="section-divider"></div></div>
@@ -620,7 +1099,8 @@
         <div class="footer-social"><a href="#"><i class="ph ph-facebook-logo"></i></a><a href="#"><i class="ph ph-instagram-logo"></i></a><a href="https://wa.me/27605896049" target="_blank" rel="noopener"><i class="ph ph-whatsapp-logo"></i></a><a href="tel:0605896049"><i class="ph ph-phone"></i></a></div>
         <p class="footer-copy">© 2024 Family Kitchen. Traditional Comfort Food. Halal Certified.</p>
     </footer>
-    <div class="floating-order"><button class="floating-order-btn" onclick="checkoutViaWhatsApp()"><i class="ph ph-whatsapp-logo"></i><span class="order-badge" id="orderCount">0</span></button></div>
+    <div class="floating-order"><button class="floating-order-btn" onclick="checkoutViaWhatsApp()" aria-label="Order via WhatsApp"><span class="wa-icon-main"><i class="ph-fill ph-whatsapp-logo"></i></span><span class="wa-icon-alt"><i class="ph-fill ph-shopping-bag"></i></span><span class="order-badge" id="orderCount">0</span></button></div>
+    <div class="floating-call" id="floatingCall"><a href="tel:0605896049" class="floating-call-btn" aria-label="Call Family Kitchen"><span class="call-icon-ring"><i class="ph-fill ph-phone-call"></i></span></a></div>
     <script>
         window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('loadingScreen').classList.add('hidden')},2800)});
         let currentHeroSlide=0;const heroSlides=document.querySelectorAll('.hero-slide');const heroDots=document.querySelectorAll('.hero-dot');let heroInterval;
@@ -639,7 +1119,7 @@
         function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
         const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible')})},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
         document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
-        window.addEventListener('scroll',()=>{const scrollY=window.scrollY;const heroContainer=document.getElementById('heroContainer');if(heroContainer&&scrollY<500){heroContainer.style.transform=`translateY(${scrollY*0.3}px)`}},{passive:true});
+        
 
         // --- Configuration & State Tracking ---
         const COUNTDOWN_KEY = "fk_order_countdown_end";
@@ -746,10 +1226,186 @@
             showToast("🔓 Secret Menu Unlocked!");
         }
 
+        
+        // --- Preload hero video for seamless transition ---
+        (function preloadHeroVideo() {
+            const heroVideo = document.getElementById('heroVideo');
+            if (heroVideo) {
+                heroVideo.load();
+                heroVideo.pause();
+            }
+        })();
+
         initCountdown();
+
+        // --- Scroll Hint Dismiss ---
+        (function initScrollHint() {
+            const hint = document.getElementById('scrollHint');
+            if (!hint) return;
+
+            function dismissHint() {
+                if (window.scrollY > 100) {
+                    hint.classList.add('hidden');
+                    window.removeEventListener('scroll', dismissHint);
+                }
+            }
+
+            window.addEventListener('scroll', dismissHint, { passive: true });
+
+            // Auto-dismiss after 8 seconds
+            setTimeout(() => {
+                hint.classList.add('hidden');
+            }, 8000);
+        })();
+
         initSecretMenu();
+
+        // --- Intermittent Call Button Toggle ---
+        (function initIntermittentCall() {
+            const callBtn = document.getElementById('floatingCall');
+            const waBtn = document.querySelector('.floating-order');
+            if (!callBtn || !waBtn) return;
+
+            function toggleButtons() {
+                const showCall = Math.random() > 0.5;
+                if (showCall) {
+                    waBtn.style.opacity = '0';
+                    waBtn.style.pointerEvents = 'none';
+                    waBtn.style.transform = 'translateY(20px) scale(0.8)';
+                    callBtn.classList.add('visible');
+                } else {
+                    waBtn.style.opacity = '1';
+                    waBtn.style.pointerEvents = 'all';
+                    waBtn.style.transform = 'translateY(0) scale(1)';
+                    callBtn.classList.remove('visible');
+                }
+            }
+
+            setTimeout(toggleButtons, 5000);
+            setInterval(() => {
+                toggleButtons();
+                setTimeout(toggleButtons, 4000 + Math.random() * 3000);
+            }, 12000);
+        })();
     </script>
 
 
 
+
+    <!-- ===== INTRO SEQUENCE JS ===== -->
+    <script>
+        (function() {
+            'use strict';
+
+            // ----- TYPEWRITER + POP INTRO (Phase 0a) -----
+            const lines = ['Real People', 'Real Family', 'Really Good', 'Food'];
+            const container = document.getElementById('typewriter-container');
+            let lineIndex = 0;
+            let charIndex = 0;
+            let timer;
+
+            function typeLine() {
+                if (lineIndex >= lines.length) {
+                    setTimeout(() => {
+                        container.classList.add('fade-out');
+                        setTimeout(() => {
+                            const phaseText = document.getElementById('phase-text');
+                            phaseText.classList.add('out');
+                            setTimeout(() => {
+                                phaseText.style.display = 'none';
+                                startVideoPhase();
+                            }, 900);
+                        }, 1000);
+                    }, 2000);
+                    return;
+                }
+
+                const currentLine = lines[lineIndex];
+                const lineElement = document.createElement('div');
+                lineElement.className = 'tw-line';
+                if (lineIndex === lines.length - 1) {
+                    lineElement.classList.add('final-line');
+                }
+                container.appendChild(lineElement);
+                charIndex = 0;
+
+                function typeChar() {
+                    if (charIndex < currentLine.length) {
+                        const charSpan = document.createElement('span');
+                        charSpan.className = 'tw-char';
+                        charSpan.textContent = currentLine[charIndex];
+                        lineElement.appendChild(charSpan);
+                        setTimeout(() => charSpan.classList.add('visible'), 20);
+                        charIndex++;
+                        const speed = 80 + Math.random() * 40;
+                        timer = setTimeout(typeChar, speed);
+                    } else {
+                        lineElement.classList.add('pop');
+                        setTimeout(() => {
+                            lineIndex++;
+                            setTimeout(typeLine, 500);
+                        }, 600);
+                    }
+                }
+                typeChar();
+            }
+
+            setTimeout(typeLine, 400);
+
+            // ----- VIDEO PHASE (18s) -----
+            const phaseVideo = document.getElementById('phase-video');
+            const progressBar = document.getElementById('video-progress');
+            const VIDEO_DURATION = 18000;
+
+            function startVideoPhase() {
+                phaseVideo.classList.add('active');
+                const introVideo = document.getElementById('intro-video-player');
+                if (introVideo) { introVideo.play().catch(() => {}); }
+                let startTime = null;
+
+                function tickProgress(ts) {
+                    if (!startTime) startTime = ts;
+                    const pct = Math.min(((ts - startTime) / VIDEO_DURATION) * 100, 100);
+                    progressBar.style.width = pct + '%';
+                    if (pct < 100) {
+                        requestAnimationFrame(tickProgress);
+                    } else {
+                        endVideo();
+                    }
+                }
+                requestAnimationFrame(tickProgress);
+                setTimeout(endVideo, VIDEO_DURATION + 1000);
+            }
+
+            function endVideo() {
+                if (phaseVideo.classList.contains('out')) return;
+                phaseVideo.classList.add('out');
+
+                // Start hero video in sync for seamless transition
+                const heroVideo = document.getElementById('heroVideo');
+                if (heroVideo) {
+                    heroVideo.currentTime = 0;
+                    heroVideo.play().catch(() => {});
+                }
+
+                // Fade out intro elements
+                const videoWrap = document.querySelector('.video-wrap');
+                const fadeOverlay = document.querySelector('.video-fade-overlay');
+                const progressWrap = document.querySelector('.video-progress-wrap');
+                const logoOverlay = document.querySelector('.video-logo-overlay');
+
+                if (videoWrap) { videoWrap.style.transition = 'opacity 1.5s ease'; videoWrap.style.opacity = '0'; }
+                if (fadeOverlay) { fadeOverlay.style.transition = 'opacity 1.5s ease'; fadeOverlay.style.opacity = '0'; }
+                if (progressWrap) { progressWrap.style.transition = 'opacity 1s ease'; progressWrap.style.opacity = '0'; }
+                if (logoOverlay) { logoOverlay.style.transition = 'opacity 1s ease, transform 1s ease'; logoOverlay.style.opacity = '0'; logoOverlay.style.transform = 'translateY(20px)'; }
+
+                // Fully hide after transition
+                setTimeout(() => {
+                    phaseVideo.style.display = 'none';
+                }, 1600);
+            }
+
+            window.endVideo = endVideo;
+        })();
+    </script>
 </body></html>
